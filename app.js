@@ -18,3 +18,16 @@ var server = app.listen(8081, function () {
 
    console.log("Example app listening at http://localhost:%s", port)
 })
+
+
+const config = require('./SECRET.js')
+console.log(config)
+ 
+// connection.connect();
+ 
+// connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+//   if (error) throw error;
+//   console.log('The solution is: ', results[0].solution);
+// });
+ 
+// connection.end();
