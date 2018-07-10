@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
-
 const connection = require('../sqlconfig');
-
 const USER_PARAMS = [
     "i_number",
     "first_name",

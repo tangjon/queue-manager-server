@@ -6,14 +6,17 @@ const app = express();
 const home = require('./routes/home.js');
 const incident = require('./routes/incident.js');
 const user = require('./routes/user.js');
+const product = require('./routes/product.js')
 
 // MIDDLEWARE
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded({ extended: true })); // to support URL-encoded bodies
 
 app.use('/api/',home);
-app.use('/api/incident/', incident);
+app.use('/api/incidents/', incident);
 app.use('/api/users/', user);
+app.use('/api/products/', product);
+
 
 
 var server = app.listen(8081, function () {
