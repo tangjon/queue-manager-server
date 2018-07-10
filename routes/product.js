@@ -48,4 +48,17 @@ router.get('/:short_name', function (req, res) {
     });
 });
 
+// DELETE Specific product by short_name
+router.delete('/:short_name', function (req, res) {
+    let query = 'DELETE FROM qmtooldb.product WHERE short_name=' + connection.escape(req.params['short_name']);
+    connection.query(query, function (error, results) {
+        if (error) throw error;
+        if (results.affectedRows === 0) {
+            res.sendStatus(404);
+        } else {
+            res.sendStatus(200);
+        }
+    });
+});
+
 module.exports = router;
