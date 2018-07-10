@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const config = require("../app.js");
-var connection = require('../sqlconfig');
+const connection = require('../sqlconfig');
 
 // GET ALL USERS
 router.get('/', function (req, res) {
@@ -22,7 +21,7 @@ router.post('/', function (req, res) {
     let query = 'SELECT * FROM user';
     connection.query(query, function (error, results, fields) {
         if (error) throw error;
-        if (results.length == 0) {
+        if (results.length === 0) {
             res.send("No Data")
         } else {
             res.send(JSON.stringify(results))
@@ -35,10 +34,10 @@ router.get('/:id/', function (req, res) {
     let query = 'SELECT * FROM `qmtooldb`.`user` where i_number =' + connection.escape(req.params['id']);
     connection.query(query, function (error, results, fields) {
         if (error) throw error;
-        if (results.length == 0) {
-            res.send("No Data")
+        if (results.length === 0) {
+            res.status(404).send("No Data")
         } else {
-            res.send(JSON.stringify(results))
+            res.status(404).send(JSON.stringify(results))
         }
     });
 });
@@ -77,17 +76,17 @@ router.put('/:id/', function (req, res) {
     `;
     connection.query(query, function (error, results, fields) {
         if (error) {
-            res.status(400).send({
+            res.status(400).json({
                 'error': error.message
             });
             throw error
         }
         if (results.affectedRows === 0) {
-            res.status(404).send({
+            res.status(404).json({
                 "error": "User does not exist"
             })
         } else {
-            res.status(200).send()
+            res.sendStatus(200)
         }
     });
 });
