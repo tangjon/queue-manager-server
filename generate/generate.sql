@@ -3,24 +3,27 @@
 -- GENERATE PRODUCTS
 -- ======================
 INSERT IGNORE INTO `qmtooldb`.`product`
-(`short_name`)
+(`product_id`,`short_name`)
 VALUES
-('NW');
+('0','NW');
+
 
 INSERT IGNORE INTO `qmtooldb`.`product`
-(`short_name`)
+(`product_id`,`short_name`)
 VALUES
-('MS');
+('1','MS');
+
 
 INSERT IGNORE INTO `qmtooldb`.`product`
-(`short_name`)
+(`product_id`,`short_name`)
 VALUES
-('BW4');
+('2','BW4');
 
 INSERT IGNORE INTO `qmtooldb`.`product`
-(`short_name`)
+(`product_id`,`short_name`)
 VALUES
-('RTC');
+('2','RTC');
+
 -- =====================
 -- GENERATE USERS
 -- =====================
@@ -84,5 +87,27 @@ VALUES
 "1.0",
 "10",
 3);
+
+
+-- =====================
+-- GENERATE INCIDENTS
+-- =====================
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','0');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','0');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','1');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','2');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','2');
+
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','0');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','0');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','1');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','2');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','2');
+
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','0');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','0');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','1');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','2');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','2');
 
 

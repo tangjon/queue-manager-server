@@ -3,12 +3,7 @@ const router = express.Router();
 const connection = require('../sqlconfig');
 const USER_PARAMS = [
     "i_number",
-    "first_name",
-    "last_name",
-    "is_available",
-    "usage_percent",
-    "current_q_days",
-    "incident_threshold",
+    "product_id"
 ];
 // This responds with "Hello World" on the homepage
 
@@ -20,8 +15,16 @@ router.get('/', function (req, res) {
         if (results.length === 0) {
             res.sendStatus(404)
         } else {
-            res.status(200).send(JSON.stringify(results))
+            res.status(200).json(results)
         }
+    });
+});
+
+
+router.post('/', function (req, res) {
+    let query = `INSERT INTO qmtooldb.incident (i_number, product_id) VALUES (,)`;
+    connection.query(query, function (error, results) {
+        if (error) throw error;
     });
 });
 
