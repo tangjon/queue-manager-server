@@ -108,4 +108,22 @@ router.put('/:id/', function (req, res) {
     });
 });
 
+// DELTE Specific user
+router.delete('/:id/', function (req, res) {
+    let body = req.body;
+    let query = `DELETE FROM qmtooldb.user where i_number = ${connection.escape(req.params['id'])}`;
+    connection.query(query, function (error, results) {
+        if (error) {
+            res.status(400).send({
+                "error": error
+            })
+        }
+        if (results.affectedRows === 0) {
+            res.sendStatus(404);
+        } else {
+            res.sendStatus(200);
+        }
+    });
+});
+
 module.exports = router;
