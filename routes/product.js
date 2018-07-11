@@ -1,10 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../sqlconfig');
-const USER_PARAMS = [
-    "product_id",
-    "short_name"
-];
 // GET All products
 router.get('/', function (req, res) {
     let query = 'SELECT * FROM qmtooldb.product';
