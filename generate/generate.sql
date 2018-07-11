@@ -22,7 +22,7 @@ VALUES
 INSERT IGNORE INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
-('2','RTC');
+('3','RTC');
 
 -- =====================
 -- GENERATE USERS
