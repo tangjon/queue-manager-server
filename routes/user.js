@@ -70,6 +70,24 @@ router.get('/:id/', function (req, res) {
     });
 });
 
+// GET SPECIFIC USER INCIDENTS
+router.get('/:id/incidents/', function (req, res) {
+    let query = `SELECT i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name FROM incident i INNER JOIN user u ON i.i_number = u.i_number INNER JOIN product p ON p.product_id = i.product_id WHERE u.i_number = ` + connection.escape(req.params['id'])
+    connection.query(query, function (error, results) {
+        if (error) res.sendStatus(404)
+        res.json(results)
+    });
+});
+
+// GET SPECIFIC USER PRODUCTS
+router.get('/:id/products/', function (req, res) {
+    let query = `SELECT p.product_id, up.User_i_number, p.short_name FROM user_has_product up INNER JOIN product p ON up.product_id = p.product_id WHERE up.User_i_number = "i100000" = ` + connection.escape(req.params['id'])
+    connection.query(query, function (error, results) {
+        if (error) res.sendStatus(404)
+        res.json(results)
+    });
+});
+
 // UPDATE USER
 router.put('/:id/', function (req, res) {
     let body = req.body;
@@ -125,5 +143,4 @@ router.delete('/:id/', function (req, res) {
         }
     });
 });
-
 module.exports = router;
