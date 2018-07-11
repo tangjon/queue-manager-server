@@ -72,7 +72,8 @@ router.get('/:id/', function (req, res) {
 
 // GET SPECIFIC USER INCIDENTS
 router.get('/:id/incidents/', function (req, res) {
-    let query = `SELECT i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name FROM incident i INNER JOIN user u ON i.i_number = u.i_number INNER JOIN product p ON p.product_id = i.product_id WHERE u.i_number = ` + connection.escape(req.params['id'])
+    let query = `SELECT i.incident_id, i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name
+    FROM incident i, user u, product p WHERE i.product_id = p.product_id and u.i_number = ` + connection.escape(req.params['id']) + ' ORDER BY i.incident_id DESC'
     connection.query(query, function (error, results) {
         if (error) res.sendStatus(404)
         res.json(results)
@@ -81,7 +82,7 @@ router.get('/:id/incidents/', function (req, res) {
 
 // GET SPECIFIC USER PRODUCTS
 router.get('/:id/products/', function (req, res) {
-    let query = `SELECT p.product_id, up.User_i_number, p.short_name FROM user_has_product up INNER JOIN product p ON up.product_id = p.product_id WHERE up.User_i_number = "i100000" = ` + connection.escape(req.params['id'])
+    let query = `SELECT p.short_name, p.product_id FROM user_has_product up, user u, product p WHERE p.product_id = up.product_id and up.User_i_number = u.i_number and up.User_i_number = ` + connection.escape(req.params['id'])
     connection.query(query, function (error, results) {
         if (error) res.sendStatus(404)
         res.json(results)

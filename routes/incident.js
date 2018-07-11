@@ -13,7 +13,8 @@ router.get('/', function (req, res) {
     let query;
     let qParams = req.query;
     if (Object.keys(qParams).length == 0) {
-        query = `SELECT * FROM incident INNER JOIN user ON incident.i_number = user.i_number;`
+        query = `SELECT i.incident_id, i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name
+        FROM incident i, user u, product p WHERE i.product_id = p.product_id and u.i_number = i.i_number ORDER BY i.incident_id DESC`
         connection.query(query, function (error, results) {
             if (error) throw error;
             if (results.length === 0) {
@@ -25,7 +26,9 @@ router.get('/', function (req, res) {
     } else {
         switch (Object.keys(qParams)[0]) {
             case 'id':
-                query = `SELECT i.incident_id, i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name FROM incident i INNER JOIN user u ON i.i_number = u.i_number INNER JOIN product p ON p.product_id = i.product_id  WHERE i.incident_id = ${connection.escape(qParams['id'])};`
+                query = `SELECT i.incident_id, i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name
+                FROM incident i, user u, product p WHERE i.product_id = p.product_id and u.i_number = i.i_number
+                and i.incident_id = ${connection.escape(qParams['id'])} ORDER BY i.incident_id DESC`
                 connection.query(query, function (error, results) {
                     if (error) res.sendStatus(404)
                     res.json(results)
@@ -33,14 +36,17 @@ router.get('/', function (req, res) {
                 console.log(query)
                 break
             case 'i_number':
-                query = `SELECT i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name FROM incident i INNER JOIN user u ON i.i_number = u.i_number INNER JOIN product p ON p.product_id = i.product_id WHERE u.i_number = ` + connection.escape(qParams['i_number'])
+                query = `SELECT i.incident_id, i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name
+                FROM incident i, user u, product p WHERE i.product_id = p.product_id and u.i_number = ${connection.escape(qParams['id'])} ORDER BY i.incident_id DESC`
                 connection.query(query, function (error, results) {
                     if (error) res.sendStatus(404)
                     res.json(results)
                 });
                 break
             case 'logger_id':
-                query = `SELECT i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name FROM incident i INNER JOIN user u ON i.i_number = u.i_number INNER JOIN product p ON p.product_id = i.product_id WHERE i.logger_id = ` + connection.escape(qParams['logger_id'])
+                query = `SELECT i.incident_id, i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name
+                FROM incident i, user u, product p WHERE i.product_id = p.product_id and u.i_number = i.i_number
+                and i.logger_id = ${connection.escape(qParams['logger_id'])} ORDER BY i.incident_id DESC`
                 connection.query(query, function (error, results) {
                     if (error) res.sendStatus(404)
                     res.json(results)
@@ -52,18 +58,5 @@ router.get('/', function (req, res) {
     }
 
 });
-
-
-
-
-// router.get('/:id/', function (req, res) {
-//     let query = `SELECT i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name FROM incident i INNER JOIN user u ON i.i_number = u.i_number INNER JOIN product p ON p.product_id = i.product_id  WHERE i.incident_id = ${connection.escape(req.params['id'])};`
-//     connection.query(query, function (error, results) {
-//         if (error) throw error;
-//         res.json(results[0])
-//     });
-// });
-
-// Get Specific incident by user
 
 module.exports = router;
