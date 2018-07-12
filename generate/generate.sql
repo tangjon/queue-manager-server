@@ -2,22 +2,22 @@
 -- ======================
 -- GENERATE PRODUCTS
 -- ======================
-INSERT IGNORE INTO `qmtooldb`.`product`
+INSERT INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
 ('1','NW');
 
-INSERT IGNORE INTO `qmtooldb`.`product`
+INSERT INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
 ('2','MS');
 
-INSERT IGNORE INTO `qmtooldb`.`product`
+INSERT INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
 ('3','BW4');
 
-INSERT IGNORE INTO `qmtooldb`.`product`
+INSERT INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
 ('4','RTC');
@@ -25,7 +25,7 @@ VALUES
 -- =====================
 -- GENERATE USERS
 -- =====================
-INSERT IGNORE INTO `qmtooldb`.`user`(`i_number`,
+INSERT INTO `qmtooldb`.`user`(`i_number`,
 `first_name`,
 `last_name`,
 `is_available`,
@@ -39,7 +39,7 @@ INSERT IGNORE INTO `qmtooldb`.`user`(`i_number`,
 "10",
 3);
 
-INSERT IGNORE INTO `qmtooldb`.`user`(`i_number`,
+INSERT INTO `qmtooldb`.`user`(`i_number`,
 `first_name`,
 `last_name`,
 `is_available`,
@@ -53,7 +53,7 @@ INSERT IGNORE INTO `qmtooldb`.`user`(`i_number`,
 "10",
 3);
 
-INSERT IGNORE INTO `qmtooldb`.`user`(`i_number`,
+INSERT INTO `qmtooldb`.`user`(`i_number`,
 `first_name`,
 `last_name`,
 `is_available`,
@@ -71,7 +71,7 @@ INSERT IGNORE INTO `qmtooldb`.`user`(`i_number`,
 -- SET QM
 -- =====================
 
-INSERT INTO `qmtooldb`.`qmuser` (`i_number`) VALUES ('i100000');
+INSERT INTO `qmtooldb`.`qmuser` (`user_i_number`) VALUES ('i100000');
 
 -- ====================
 -- GENERATE ACTIONS
@@ -167,32 +167,40 @@ VALUES
 ('i100002',
 3);
 
+
 -- =====================
 -- GENERATE INCIDENTS
 -- =====================
+SET @MIN_PRODUCT_ID = 1;
+SET @MAX_PRODUCT_ID = 3;
+SET @dummy_user = 'i100000';
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
+INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT  last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
+INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
+INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 
+SET @dummy_user = 'i100001';
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
+INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT  last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
+INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
+INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 
--- CREATE AN INCIDENT
-INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `action_summary`) SELECT i_number, '2', 'Incident Added' FROM qmtooldb.qmuser;
-SELECT *
-FROM information_schema.TABLES
-WHERE TABLE_SCHEMA = "qmtooldb"
-AND TABLE_NAME = "actionentrylog";
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','1');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','1');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','2');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','3');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','3');
+SET @dummy_user = 'i100002';
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
+INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT  last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
+INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
+INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','1');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','1');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','2');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','3');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','3');
+-- =====================
+-- TOGGLE USERS
+-- =====================
+UPDATE `qmtooldb`.`user`
+SET `is_available` = "1" WHERE `i_number` = 'i100000';
 
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','2');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','2');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','2');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','3');
-INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','3');
-
+SELECT * FROM user ;
