@@ -201,6 +201,11 @@ INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT last_ins
 -- TOGGLE USERS
 -- =====================
 UPDATE `qmtooldb`.`user`
-SET `is_available` = "1" WHERE `i_number` = 'i100000';
+SET `is_available` = "0" WHERE `i_number` = 'i100000';
 
-SELECT * FROM user ;
+SELECT * FROM user WHERE `i_number` = 'i100000';
+
+-- =====================
+-- COUNT THE NUMBER OF INCIDENTS
+-- =====================
+SELECT COUNT(*) AS "CAT" FROM USER;
