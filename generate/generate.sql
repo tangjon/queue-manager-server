@@ -25,16 +25,13 @@ VALUES
 -- =====================
 -- GENERATE USERS
 -- =====================
-INSERT IGNORE INTO `qmtooldb`.`user`
-(`i_number`,
+INSERT IGNORE INTO `qmtooldb`.`user`(`i_number`,
 `first_name`,
 `last_name`,
 `is_available`,
 `usage_percent`,
 `current_q_days`,
-`incident_threshold`)
-VALUES
-("i100000",
+`incident_threshold`) VALUES("i100000",
 "John",
 "Doe",
 "0",
@@ -42,16 +39,13 @@ VALUES
 "10",
 3);
 
-INSERT IGNORE INTO `qmtooldb`.`user`
-(`i_number`,
+INSERT IGNORE INTO `qmtooldb`.`user`(`i_number`,
 `first_name`,
 `last_name`,
 `is_available`,
 `usage_percent`,
 `current_q_days`,
-`incident_threshold`)
-VALUES
-("i100001",
+`incident_threshold`)VALUES("i100001",
 "Jane",
 "Doe",
 "0",
@@ -59,17 +53,13 @@ VALUES
 "10",
 3);
 
-
-INSERT IGNORE INTO `qmtooldb`.`user`
-(`i_number`,
+INSERT IGNORE INTO `qmtooldb`.`user`(`i_number`,
 `first_name`,
 `last_name`,
 `is_available`,
 `usage_percent`,
 `current_q_days`,
-`incident_threshold`)
-VALUES
-("i100002",
+`incident_threshold`)VALUES("i100002",
 "Bobby",
 "Chan",
 "0",
@@ -77,22 +67,46 @@ VALUES
 "10",
 3);
 
-INSERT IGNORE INTO `qmtooldb`.`user`
-(`i_number`,
-`first_name`,
-`last_name`,
-`is_available`,
-`usage_percent`,
-`current_q_days`,
-`incident_threshold`)
+-- =====================
+-- SET QM
+-- =====================
+
+INSERT INTO `qmtooldb`.`qmuser` (`i_number`) VALUES ('i100000');
+
+-- ====================
+-- GENERATE ACTIONS
+-- ====================
+INSERT INTO `qmtooldb`.`action`(`action_id`,
+`description`)VALUES(1,
+"Custom Message");
+
+INSERT INTO `qmtooldb`.`action`
+(`action_id`,
+`description`)
 VALUES
-("i100004",
-"Logger",
-"Log",
-"0",
-"1.0",
-"10",
-3);
+(2,
+"Incident Assigned");
+
+INSERT INTO `qmtooldb`.`action`
+(`action_id`,
+`description`)
+VALUES
+(3,
+"Incident Unassigned");
+
+INSERT INTO `qmtooldb`.`action`
+(`action_id`,
+`description`)
+VALUES
+(4,
+"Availability Changed");
+
+INSERT INTO `qmtooldb`.`action`
+(`action_id`,
+`description`)
+VALUES
+(5,
+"Queue Days Changed");
 
 -- =====================
 -- ADD SUPPORT PRODUCTS
@@ -139,7 +153,6 @@ VALUES
 ('i100001',
 3);
 
-
 INSERT ignore INTO `qmtooldb`.`user_has_product`
 (`User_i_number`,
 `product_id`)
@@ -157,21 +170,29 @@ VALUES
 -- =====================
 -- GENERATE INCIDENTS
 -- =====================
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100000','1','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100000','1','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100000','2','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100000','3','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100000','3','i100004');
 
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100001','1','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100001','1','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100001','2','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100001','3','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100001','3','i100004');
 
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100002','2','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100002','2','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100002','2','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100002','3','i100004');
-INSERT IGNORE INTO qmtooldb.incident (i_number, product_id, logger_id) VALUES ('i100002','3','i100004');
+-- CREATE AN INCIDENT
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `action_summary`) SELECT i_number, '2', 'Incident Added' FROM qmtooldb.qmuser;
+SELECT *
+FROM information_schema.TABLES
+WHERE TABLE_SCHEMA = "qmtooldb"
+AND TABLE_NAME = "actionentrylog";
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','1');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','1');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','2');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','3');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100000','3');
+
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','1');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','1');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','2');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','3');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100001','3');
+
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','2');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','2');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','2');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','3');
+INSERT INTO qmtooldb.incident (i_number, product_id) VALUES ('i100002','3');
 

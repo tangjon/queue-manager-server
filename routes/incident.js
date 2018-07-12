@@ -12,7 +12,7 @@ const connection = require('../sqlconfig');
 router.get('/', function (req, res) {
     let query;
     let qParams = req.query;
-    if (Object.keys(qParams).length == 0) {
+    if (Object.keys(qParams).length === 0) {
         query = `SELECT i.incident_id, i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name
         FROM incident i, user u, product p WHERE i.product_id = p.product_id and u.i_number = i.i_number ORDER BY i.incident_id DESC`
         connection.query(query, function (error, results) {
