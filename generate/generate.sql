@@ -167,13 +167,15 @@ VALUES
 ('i100002',
 3);
 
-
 -- =====================
 -- GENERATE INCIDENTS
 -- =====================
 SET @MIN_PRODUCT_ID = 1;
 SET @MAX_PRODUCT_ID = 3;
 SET @dummy_user = 'i100000';
+INSERT INTO qmtooldb.incident (i_number, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+SELECT * FROM incident, actionentrylog, action WHERE incident.entrylog_id = actionentrylog.log_id and action.action_id = actionentrylog.action_id;
+
 INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
 INSERT INTO qmtooldb.incident (entrylog_id,i_number, product_id) SELECT  last_insert_id(),@dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 INSERT INTO `qmtooldb`.`actionentrylog` (`logger_i_number`, `action_id`, `affected_i_number`) SELECT user_i_number, '2', @dummy_user FROM qmtooldb.qmuser;
