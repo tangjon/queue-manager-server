@@ -105,10 +105,6 @@ INSERT INTO `qmtooldb`.`user`(`user_id`,
 "1.0",
 "10",
 3);
--- =====================
--- ASSIGN ROLES
--- =====================
-UPDATE user_supports_product usp SET RCC = (SELECT product_id FROM product p WHERE p.short_name = "RCC") WHERE usp.user_id = 'i100000';
 
 -- =====================
 -- SET QM

@@ -59,7 +59,7 @@ router.get('/:id/', function (req, res) {
 
 // GET SPECIFIC USER INCIDENTS
 router.get('/:id/incidents/', function (req, res) {
-    let query = `SELECT i.incident_id, i.log_id, p.short_name, ael.timestamp, p.product_id
+    const query = `SELECT i.incident_id, i.log_id, p.short_name, ael.timestamp, p.product_id
     FROM incident i, user u, product p, actionentrylog ael WHERE ael.log_id = i.log_id and i.product_id = p.product_id and u.user_id = ` + connection.escape(req.params['id']) + ' ORDER BY i.incident_id DESC';
     connection.query(query, function (error, results) {
         if (!error && results.length) {
@@ -73,7 +73,7 @@ router.get('/:id/incidents/', function (req, res) {
 
 // GET SPECIFIC USER PRODUCTS
 router.get('/:id/products/', function (req, res) {
-    let query = `SELECT * FROM user u, user_has_product uhp, product p WHERE uhp.user_id = u.user_id and uhp.product_id = p.product_id and u.user_id = ` + connection.escape(req.params['id']);
+    const query = `SELECT * FROM user_supports_product usp WHERE usp.user_id = ${connection.escape(req.params['id'])};`; 
     connection.query(query, function (error, results) {
         if (!error && results.length) {
             res.status(200).json(results)
@@ -91,9 +91,41 @@ router.get('/:id/products/', function (req, res) {
 * ============================
 * */
 
+// ASSIGN USER SUPPORT ROLE
+router.post('/:id/products', function (req, res) {
+    let query;
+    const PRODUCT_SHORT_NAME = req.body.short_name;
+    const SUPPORTD = req.body.supported;
+    // VALIDATE POST
 
+    // PROCESS POST
+    if (parseInt(SUPPORTD)){
+        query = `UPDATE user_supports_product usp SET ${PRODUCT_SHORT_NAME} = (SELECT product_id FROM product p WHERE p.short_name = "${PRODUCT_SHORT_NAME}") WHERE usp.user_id = ${connection.escape(req.params['id'])};`
+        connection.query(query, function (error, results) {
+            if (!error && results.affectedRows) {
+                res.sendStatus(HttpStatus.ACCEPTED)
+            }
+            else {
+                handleError(error, res);
+            }
+        })
+    } else {
+        query = `UPDATE user_supports_product usp SET ${PRODUCT_SHORT_NAME} = NULL WHERE usp.user_id = ${connection.escape(req.params['id'])};`
+        connection.query(query, function (error, results) {
+            if (!error && results.affectedRows) {
+                res.sendStatus(HttpStatus.ACCEPTED)
+            }
+            else {
+                handleError(error, res);
+            }
+        })
+    }
+})
+
+// CREATE A USER
 router.post('/', function (req, res) {
-    let body = req.body;
+    // VALIDATE POST
+    const body = req.body;
     USER_PARAMS.forEach(element => {
         if (body[element] == null) {
             const error_msg = `Missing '${element}' parameter`;
@@ -103,7 +135,8 @@ router.post('/', function (req, res) {
             throw Error(error_msg)
         }
     });
-    let query = `INSERT INTO qmtooldb.user (i_number, first_name, last_name, is_available,usage_percent,current_q_days,incident_threshold) 
+    // PROCESS POST
+    const query = `INSERT INTO qmtooldb.user (i_number, first_name, last_name, is_available,usage_percent,current_q_days,incident_threshold) 
     VALUES (${connection.escape(body['i_number'])}, 
         ${connection.escape(body['first_name'])},  
         ${connection.escape(body['last_name'])}, 
@@ -182,4 +215,5 @@ router.delete('/:id/', function (req, res) {
         }
     });
 });
+
 module.exports = router;
