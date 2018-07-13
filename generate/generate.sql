@@ -1,4 +1,4 @@
-
+USE qmtooldb;
 -- ======================
 -- GENERATE PRODUCTS
 -- ======================
@@ -8,8 +8,8 @@ INSERT INTO `qmtooldb`.`product`
 VALUES
 ('1',@product);
 ALTER TABLE qmtooldb.user_supports_product 
-ADD NW varchar(20) NULL DEFAULT '0',
-ADD CONSTRAINT FOREIGN KEY (`NW`) REFERENCES `qmtooldb`.`product` (`short_name`)
+ADD NW INT(11) NULL DEFAULT NULL,
+ADD CONSTRAINT FOREIGN KEY (`NW`) REFERENCES `qmtooldb`.`product` (`product_id`)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 
@@ -19,8 +19,8 @@ INSERT INTO `qmtooldb`.`product`
 VALUES
 ('2',@product);
 ALTER TABLE qmtooldb.user_supports_product 
-ADD MS varchar(20) NULL DEFAULT '0',
-ADD CONSTRAINT FOREIGN KEY (`MS`) REFERENCES `qmtooldb`.`product` (`short_name`)
+ADD MS INT(11) NULL DEFAULT NULL,
+ADD CONSTRAINT FOREIGN KEY (`MS`) REFERENCES `qmtooldb`.`product` (`product_id`)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 
@@ -30,8 +30,8 @@ INSERT INTO `qmtooldb`.`product`
 VALUES
 ('3',@product);
 ALTER TABLE qmtooldb.user_supports_product 
-ADD BW4 varchar(20) NULL DEFAULT '0',
-ADD CONSTRAINT FOREIGN KEY (`BW4`) REFERENCES `qmtooldb`.`product` (`short_name`)
+ADD BW4 INT(11) NULL DEFAULT NULL,
+ADD CONSTRAINT FOREIGN KEY (`BW4`) REFERENCES `qmtooldb`.`product` (`product_id`)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 
@@ -41,8 +41,8 @@ INSERT INTO `qmtooldb`.`product`
 VALUES
 ('4',@product);
 ALTER TABLE qmtooldb.user_supports_product 
-ADD RCC varchar(20) NULL DEFAULT '0',
-ADD CONSTRAINT FOREIGN KEY (`RCC`) REFERENCES `qmtooldb`.`product` (`short_name`)
+ADD RCC INT(11) NULL DEFAULT NULL,
+ADD CONSTRAINT FOREIGN KEY (`RCC`) REFERENCES `qmtooldb`.`product` (`product_id`)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 
@@ -105,6 +105,10 @@ INSERT INTO `qmtooldb`.`user`(`user_id`,
 "1.0",
 "10",
 3);
+-- =====================
+-- ASSIGN ROLES
+-- =====================
+UPDATE user_supports_product usp SET RCC = (SELECT product_id FROM product p WHERE p.short_name = "RCC") WHERE usp.user_id = 'i100000';
 
 -- =====================
 -- SET QM
@@ -150,62 +154,17 @@ VALUES
 -- =====================
 -- ADD SUPPORT PRODUCTS
 -- =====================
-INSERT ignore INTO `qmtooldb`.`user_has_product`
-(`user_id`,
-`product_id`)
-VALUES
-('i100000',
-1);
+UPDATE user_supports_product usp SET RCC = (SELECT product_id FROM product p WHERE p.short_name = "RCC") WHERE usp.user_id = 'i100000';
 
+UPDATE user_supports_product usp SET RCC = (SELECT product_id FROM product p WHERE p.short_name = "RCC") WHERE usp.user_id = 'i100001';
 
-INSERT ignore INTO `qmtooldb`.`user_has_product`
-(`user_id`,
-`product_id`)
-VALUES
-('i100000',
-2);
+UPDATE user_supports_product usp SET RCC = (SELECT product_id FROM product p WHERE p.short_name = "RCC") WHERE usp.user_id = 'i100002';
 
-INSERT ignore INTO `qmtooldb`.`user_has_product`
-(`user_id`,
-`product_id`)
-VALUES
-('i100000',
-3);
+UPDATE user_supports_product usp SET NW = (SELECT product_id FROM product p WHERE p.short_name = "NW") WHERE usp.user_id = 'i100000';
 
-INSERT ignore INTO `qmtooldb`.`user_has_product`
-(`user_id`,
-`product_id`)
-VALUES
-('i100001',
-1);
+UPDATE user_supports_product usp SET NW = (SELECT product_id FROM product p WHERE p.short_name = "NW") WHERE usp.user_id = 'i100001';
 
-INSERT ignore INTO `qmtooldb`.`user_has_product`
-(`user_id`,
-`product_id`)
-VALUES
-('i100001',
-2);
-
-INSERT ignore INTO `qmtooldb`.`user_has_product`
-(`user_id`,
-`product_id`)
-VALUES
-('i100001',
-3);
-
-INSERT ignore INTO `qmtooldb`.`user_has_product`
-(`user_id`,
-`product_id`)
-VALUES
-('i100002',
-2);
-
-INSERT ignore INTO `qmtooldb`.`user_has_product`
-(`user_id`,
-`product_id`)
-VALUES
-('i100002',
-3);
+UPDATE user_supports_product usp SET NW = (SELECT product_id FROM product p WHERE p.short_name = "NW") WHERE usp.user_id = 'i100002';
 
 -- =====================
 -- GENERATE INCIDENTS
@@ -239,3 +198,4 @@ SELECT * FROM user WHERE `user_id` = 'i100000';
 -- =====================
 -- COUNT THE NUMBER OF INCIDENTS
 -- =====================
+
