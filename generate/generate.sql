@@ -2,25 +2,49 @@
 -- ======================
 -- GENERATE PRODUCTS
 -- ======================
+SET @product = "NW";
 INSERT INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
-('1','NW');
+('1',@product);
+ALTER TABLE qmtooldb.user_supports_product 
+ADD NW varchar(20) NULL DEFAULT '0',
+ADD CONSTRAINT FOREIGN KEY (`NW`) REFERENCES `qmtooldb`.`product` (`short_name`)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
+SET @product = "MS";
 INSERT INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
-('2','MS');
+('2',@product);
+ALTER TABLE qmtooldb.user_supports_product 
+ADD MS varchar(20) NULL DEFAULT '0',
+ADD CONSTRAINT FOREIGN KEY (`MS`) REFERENCES `qmtooldb`.`product` (`short_name`)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
+SET @product = "BW4";
 INSERT INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
-('3','BW4');
+('3',@product);
+ALTER TABLE qmtooldb.user_supports_product 
+ADD BW4 varchar(20) NULL DEFAULT '0',
+ADD CONSTRAINT FOREIGN KEY (`BW4`) REFERENCES `qmtooldb`.`product` (`short_name`)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
+SET @product = "RCC";
 INSERT INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
-('4','RTC');
+('4',@product);
+ALTER TABLE qmtooldb.user_supports_product 
+ADD RCC varchar(20) NULL DEFAULT '0',
+ADD CONSTRAINT FOREIGN KEY (`RCC`) REFERENCES `qmtooldb`.`product` (`short_name`)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
 
 -- =====================
 -- GENERATE USERS
@@ -60,6 +84,21 @@ INSERT INTO `qmtooldb`.`user`(`user_id`,
 `usage_percent`,
 `current_q_days`,
 `incident_threshold`)VALUES("i100002",
+"Bobby",
+"Chan",
+"0",
+"1.0",
+"10",
+3);
+
+
+INSERT INTO `qmtooldb`.`user`(`user_id`,
+`first_name`,
+`last_name`,
+`is_available`,
+`usage_percent`,
+`current_q_days`,
+`incident_threshold`)VALUES("i100003",
 "Bobby",
 "Chan",
 "0",
@@ -117,6 +156,7 @@ INSERT ignore INTO `qmtooldb`.`user_has_product`
 VALUES
 ('i100000',
 1);
+
 
 INSERT ignore INTO `qmtooldb`.`user_has_product`
 (`user_id`,

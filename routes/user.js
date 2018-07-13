@@ -1,28 +1,97 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../sqlconfig');
-const USER_PARAMS = [
-    "i_number",
-    "first_name",
-    "last_name",
-    "is_available",
-    "usage_percent",
-    "current_q_days",
-    "incident_threshold",
-];
+const HttpStatus = require('http-status-codes');
 
-// GET ALL USERS
+/*
+* ============================
+* GETTERS
+* ============================
+* */
+
+function handleError(error, response) {
+    // ERRORS
+    if (error) {
+        switch (error.code) {
+            // case 'ER_NO_SUCH_TABLE':
+            //     response.sendStatus(404);
+            //     break;
+            // case 'PROTOCOL_CONNECTION_LOST':
+            //     response.sendStatus(404);
+            //     break;
+            default:
+                response.status(404).json({
+                    error: error.message
+                });
+                break;
+        }
+    } else {
+        response.sendStatus(404)
+    }
+
+}
+
+// GET ALL USERS w/o details
 router.get('/', function (req, res) {
-    let query = 'SELECT * FROM user';
+    const query = 'SELECT * FROM user';
     connection.query(query, function (error, results) {
-        if (error) throw error;
-        if (results.length === 0) {
-            res.send("No Data")
-        } else {
-            res.send(JSON.stringify(results))
+        if (!error && results.length) {
+            res.status(200).json(results)
+        }
+        else {
+            handleError(error, res);
         }
     });
 });
+
+// GET SPECIFIC USER
+router.get('/:id/', function (req, res) {
+    const query = 'SELECT * FROM user where user_id =' + connection.escape(req.params['id']);
+    connection.query(query, function (error, results) {
+        if (!error && results.length) {
+            res.status(200).json(results)
+        }
+        else {
+            handleError(error, res);
+        }
+    });
+});
+
+// GET SPECIFIC USER INCIDENTS
+router.get('/:id/incidents/', function (req, res) {
+    let query = `SELECT i.incident_id, i.log_id, p.short_name, ael.timestamp, p.product_id
+    FROM incident i, user u, product p, actionentrylog ael WHERE ael.log_id = i.log_id and i.product_id = p.product_id and u.user_id = ` + connection.escape(req.params['id']) + ' ORDER BY i.incident_id DESC';
+    connection.query(query, function (error, results) {
+        if (!error && results.length) {
+            res.status(200).json(results)
+        }
+        else {
+            handleError(error, res);
+        }
+    });
+});
+
+// GET SPECIFIC USER PRODUCTS
+router.get('/:id/products/', function (req, res) {
+    let query = `SELECT * FROM user u, user_has_product uhp, product p WHERE uhp.user_id = u.user_id and uhp.product_id = p.product_id and u.user_id = ` + connection.escape(req.params['id']);
+    connection.query(query, function (error, results) {
+        if (!error && results.length) {
+            res.status(200).json(results)
+        }
+        else {
+            handleError(error, res);
+        }
+    });
+});
+
+
+/*
+* ============================
+* POSTS
+* ============================
+* */
+
+
 router.post('/', function (req, res) {
     let body = req.body;
     USER_PARAMS.forEach(element => {
@@ -57,37 +126,6 @@ router.post('/', function (req, res) {
     )
 });
 
-// GET SPECIFIC USER
-router.get('/:id/', function (req, res) {
-    let query = 'SELECT * FROM `qmtooldb`.`user` where i_number =' + connection.escape(req.params['id']);
-    connection.query(query, function (error, results) {
-        if (error) throw error;
-        if (results.length === 0) {
-            res.sendStatus(404)
-        } else {
-            res.status(200).json(results[0])
-        }
-    });
-});
-
-// GET SPECIFIC USER INCIDENTS
-router.get('/:id/incidents/', function (req, res) {
-    let query = `SELECT i.incident_id, i.logger_id, p.short_name, u.i_number, u.first_name, u.last_name
-    FROM incident i, user u, product p WHERE i.product_id = p.product_id and u.i_number = ` + connection.escape(req.params['id']) + ' ORDER BY i.incident_id DESC'
-    connection.query(query, function (error, results) {
-        if (error) res.sendStatus(404)
-        res.json(results)
-    });
-});
-
-// GET SPECIFIC USER PRODUCTS
-router.get('/:id/products/', function (req, res) {
-    let query = `SELECT p.short_name, p.product_id FROM user_has_product up, user u, product p WHERE p.product_id = up.product_id and up.User_i_number = u.i_number and up.User_i_number = ` + connection.escape(req.params['id'])
-    connection.query(query, function (error, results) {
-        if (error) res.sendStatus(404)
-        res.json(results)
-    });
-});
 
 // UPDATE USER
 router.put('/:id/', function (req, res) {
