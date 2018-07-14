@@ -90,7 +90,7 @@ router.get('/:id/products/', function (req, res) {
 * POSTS
 * ============================
 * */
-
+// TODO not escaped
 // ASSIGN USER SUPPORT ROLE
 router.post('/:id/products', function (req, res) {
     let query;

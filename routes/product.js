@@ -1,15 +1,38 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../sqlconfig');
+
+
+function handleError(error, response) {
+    // ERRORS
+    if (error) {
+        switch (error.code) {
+            // case 'ER_NO_SUCH_TABLE':
+            //     response.sendStatus(404);
+            //     break;
+            // case 'PROTOCOL_CONNECTION_LOST':
+            //     response.sendStatus(404);
+            //     break;
+            default:
+                response.status(404).json({
+                    error: error.message
+                });
+                break;
+        }
+    } else {
+        response.sendStatus(404)
+    }
+}
+
 // GET All products
 router.get('/', function (req, res) {
     let query = 'SELECT * FROM qmtooldb.product';
     connection.query(query, function (error, results) {
-        if (error) throw error;
-        if (results.length === 0) {
-            res.sendStatus(204)
-        } else {
+        if (!error && results.length) {
             res.status(200).json(results)
+        }
+        else {
+            handleError(error, res);
         }
     });
 });
