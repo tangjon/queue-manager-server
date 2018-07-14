@@ -1,6 +1,11 @@
 const ResponseBuilder = require('../helper/response-builder.js');
 module.exports.handleError = function (error, response) {
-    response.status(404).json(ResponseBuilder.ERROR)
+    if (error) {
+        response.status(404).json(ResponseBuilder.ERROR)
+    } else {
+        response.sendStatus(404)
+    }
+
     // if (error) {
     //     switch (error.code) {
     //         // case 'ER_NO_SUCH_TABLE':
