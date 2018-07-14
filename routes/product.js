@@ -1,9 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../sqlconfig');
-const ResponseBuilder = require("../helper/response-builder");
+const ResponseBuilder = require('../helper/response-builder.js');
+const Error = require('../helper/error.js');
 
-// GET All products
+// ============================
+// GETTERS
+// ============================
+
+/**
+ * GET All products
+ * @return
+ * @example
+ */
 router.get('/', function (req, res) {
     let query = 'SELECT * FROM qmtooldb.product';
     connection.query(query, function (error, results) {
@@ -11,50 +20,65 @@ router.get('/', function (req, res) {
             res.status(200).json(ResponseBuilder.GET(results))
         }
         else {
-            handleError(error, res);
+            Error.handleError(error, res);
         }
     });
 });
 
-// CREATE a product
-router.post('/', function (req, res) {
-    let body = req.body;
-    let query = `INSERT INTO qmtooldb.product (short_name) VALUES (${connection.escape(body['short_name'])})`;
-    connection.query(query, function (error, results) {
-        if (error) {
-            switch (error.code) {
-                case "ER_DUP_ENTRY":
-                    res.sendStatus(409);
-                    break
-            }
-        } else {
-            res.status(200)
-        }
-    });
-});
-
-// GET Specific product by short_name
+/**
+ * GET Specific product by short_name
+ * @return
+ * @example
+ */
 router.get('/:short_name', function (req, res) {
     let query = 'SELECT * FROM qmtooldb.product WHERE short_name=' + connection.escape(req.params['short_name']);
     connection.query(query, function (error, results) {
-        if (error) throw error;
-        if (results.length === 0) {
-            res.sendStatus(404)
-        } else {
-            res.status(200).json(results[0])
+        if (!error && results.length) {
+            res.status(200).json(ResponseBuilder.GET(results))
+        }
+        else {
+            Error.handleError(error, res);
         }
     });
 });
 
-// DELETE Specific product by short_name
+// ============================
+// POST
+// ============================
+
+/**
+ * CREATE a product
+ * @return
+ * @example
+ */
+router.post('/', function (req, res) {
+    let body = req.body;
+    let query = `INSERT INTO qmtooldb.product (short_name) VALUES (${connection.escape(body['short_name'])})`;
+    connection.query(query, function (error) {
+        if (error) {
+            Error.handleError(error, res);
+        } else {
+            res.status(201).location(req.baseUrl + '/product/' + connection.escape(body['short_name'])).send();
+        }
+    });
+});
+
+// ============================
+// DELETE
+// ============================
+
+/**
+ * DELETE Specific product by short_name
+ * @return
+ * @example
+ */
 router.delete('/:short_name', function (req, res) {
     let query = 'DELETE FROM qmtooldb.product WHERE short_name=' + connection.escape(req.params['short_name']);
     connection.query(query, function (error, results) {
-        if (error) throw error;
-        if (results.affectedRows === 0) {
-            res.sendStatus(404);
+        if (error) {
+            Error.handleError(error, res);
         } else {
-            res.sendStatus(200);
+            res.status(200).json(ResponseBuilder.DELETE())
         }
     });
 });

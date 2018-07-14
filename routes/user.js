@@ -4,6 +4,12 @@ const connection = require('../sqlconfig');
 const ResponseBuilder = require('../helper/response-builder.js');
 const Error = require('../helper/error.js');
 
+
+/**
+ * DESCRIPTION
+ * @return
+ * @example
+ */
 // ============================
 // GETTERS
 // ============================
@@ -192,10 +198,10 @@ router.post('/', function (req, res) {
         ${connection.escape(body['incident_threshold'])})`;
 
     connection.query(query, function (error) {
-            if (!error) {
-                res.status(201).location(req.baseUrl + '/' + connection.escape(body['i_number'])).send();
+        if (error) {
+            Error.handleError(error, res);
             } else {
-                Error.handleError(error, res);
+            res.status(201).location(req.baseUrl + '/' + connection.escape(body['i_number'])).send();
             }
         }
     )
@@ -217,7 +223,7 @@ router.delete('/:id/', function (req, res) {
     let query = `DELETE FROM qmtooldb.user where i_number = ${connection.escape(req.params['id'])}`;
     connection.query(query, function (error, results) {
         if (error) {
-            handleError();
+            Error.handleError(error, res);
         } else {
             res.status(200).json(ResponseBuilder.DELETE())
         }
