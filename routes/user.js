@@ -15,15 +15,29 @@ const Error = require('../helper/error.js');
 // ============================
 
 /**
- * GET ALL USERS w/o details
+ * GET ALL USERS with ALL DETAILS
  * @return
  * @example
  */
 router.get('/', function (req, res) {
-    const query = 'SELECT * FROM user';
-    connection.query(query, function (error, results) {
+    const query = "SELECT * FROM user u, user_supports_product usp WHERE u.user_id = usp.user_id ORDER BY u.user_id;";
+    const qProducts = "SELECT * FROM product;";
+    connection.query(qProducts + query, function (error, results) {
         if (!error && results.length) {
-            res.status(200).json(ResponseBuilder.GET(results))
+            // LOOP THROUGH TO GET USER_ID
+            // let array = [];
+            // results.forEach(user => {
+            //   array.push({
+            //       "user_id" : user.user_id,
+            //       "supportedProduct" :
+            //           {
+            //               "NW" : user.NW
+            //               ""
+            //           }
+            //   })
+            // });
+
+            res.status(200).json(ResponseBuilder.GET(array))
         }
         else {
             Error.handleError(error, res);
@@ -72,7 +86,7 @@ router.get('/:id/incidents/', function (req, res) {
  * @example
  */
 router.get('/:id/products/', function (req, res) {
-    const query = `SELECT * FROM user_supports_product usp WHERE usp.user_id = ${connection.escape(req.params['id'])};`; 
+    const query = `SELECT * FROM user_supports_product usp WHERE usp.user_id = ${connection.escape(req.params['id'])};`;
     connection.query(query, function (error, results) {
         if (!error && results.length) {
             res.status(200).json(ResponseBuilder.GET(results))
@@ -99,7 +113,7 @@ router.put('/:id/products', function (req, res) {
     // VALIDATE POST
 
     // PROCESS POST
-    if (parseInt(SUPPORTD)){
+    if (parseInt(SUPPORTD)) {
         query = `UPDATE user_supports_product usp SET ${PRODUCT_SHORT_NAME} = (SELECT product_id FROM product p WHERE p.short_name = "${PRODUCT_SHORT_NAME}") WHERE usp.user_id = ${connection.escape(req.params['id'])};`;
         connection.query(query, function (error, results) {
             if (!error && results.affectedRows) {

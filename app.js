@@ -1,6 +1,7 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
-
+app.use(cors({credentials: true, origin: true}));
 
 // ROUTES
 const home = require('./routes/home.js');
@@ -18,8 +19,7 @@ app.use('/api/users/', user);
 app.use('/api/products/', product);
 
 
-
-var server = app.listen(8081, function () {
+const server = app.listen(8081, function () {
 
    var host = server.address().address;
    var port = server.address().port;

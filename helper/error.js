@@ -1,7 +1,7 @@
 const ResponseBuilder = require('../helper/response-builder.js');
 module.exports.handleError = function (error, response) {
     if (error) {
-        response.status(404).json(ResponseBuilder.ERROR)
+        response.status(404).json(ResponseBuilder.ERROR(error))
     } else {
         response.sendStatus(404)
     }
