@@ -6,7 +6,7 @@ const app = express();
 const home = require('./routes/home.js');
 const incident = require('./routes/incident.js');
 const user = require('./routes/user.js');
-const product = require('./routes/product.js')
+const product = require('./routes/product.js');
 
 // MIDDLEWARE
 app.use(express.json());       // to support JSON-encoded bodies

@@ -1,98 +1,91 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../sqlconfig');
-const HttpStatus = require('http-status-codes');
+const ResponseBuilder = require('../helper/response-builder.js');
+const Error = require('../helper/error.js');
+// ============================
+// GETTERS
+// ============================
 
-/*
-* ============================
-* GETTERS
-* ============================
-* */
-
-function handleError(error, response) {
-    // ERRORS
-    if (error) {
-        switch (error.code) {
-            // case 'ER_NO_SUCH_TABLE':
-            //     response.sendStatus(404);
-            //     break;
-            // case 'PROTOCOL_CONNECTION_LOST':
-            //     response.sendStatus(404);
-            //     break;
-            default:
-                response.status(404).json({
-                    error: error.message
-                });
-                break;
-        }
-    } else {
-        response.sendStatus(404)
-    }
-
-}
-
-// GET ALL USERS w/o details
+/**
+ * GET ALL USERS w/o details
+ * @return
+ * @example
+ */
 router.get('/', function (req, res) {
     const query = 'SELECT * FROM user';
     connection.query(query, function (error, results) {
         if (!error && results.length) {
-            res.status(200).json(results)
+            res.status(200).json(ResponseBuilder.GET(results))
         }
         else {
-            handleError(error, res);
+            Error.handleError(error, res);
         }
     });
 });
 
-// GET SPECIFIC USER
+/**
+ * GET SPECIFIC USER
+ * @return
+ * @example
+ */
 router.get('/:id/', function (req, res) {
     const query = 'SELECT * FROM user where user_id =' + connection.escape(req.params['id']);
     connection.query(query, function (error, results) {
         if (!error && results.length) {
-            res.status(200).json(results)
+            res.status(200).json(ResponseBuilder.GET(results))
         }
         else {
-            handleError(error, res);
+            Error.handleError(error, res);
         }
     });
 });
 
-// GET SPECIFIC USER INCIDENTS
+/**
+ * GET SPECIFIC USER INCIDENTS
+ * @return
+ * @example
+ */
 router.get('/:id/incidents/', function (req, res) {
     const query = `SELECT i.incident_id, i.log_id, p.short_name, ael.timestamp, p.product_id
     FROM incident i, user u, product p, actionentrylog ael WHERE ael.log_id = i.log_id and i.product_id = p.product_id and u.user_id = ` + connection.escape(req.params['id']) + ' ORDER BY i.incident_id DESC';
     connection.query(query, function (error, results) {
         if (!error && results.length) {
-            res.status(200).json(results)
+            res.status(200).json(ResponseBuilder.GET(results))
         }
         else {
-            handleError(error, res);
+            Error.handleError(error, res);
         }
     });
 });
 
-// GET SPECIFIC USER PRODUCTS
+/**
+ * GET SPECIFIC USER PRODUCTS
+ * @return
+ * @example
+ */
 router.get('/:id/products/', function (req, res) {
     const query = `SELECT * FROM user_supports_product usp WHERE usp.user_id = ${connection.escape(req.params['id'])};`; 
     connection.query(query, function (error, results) {
         if (!error && results.length) {
-            res.status(200).json(results)
+            res.status(200).json(ResponseBuilder.GET(results))
         }
         else {
-            handleError(error, res);
+            Error.handleError(error, res);
         }
     });
 });
 
+// ============================
+// PUT
+// ============================
 
-/*
-* ============================
-* POSTS
-* ============================
-* */
-// TODO not escaped
-// ASSIGN USER SUPPORT ROLE
-router.post('/:id/products', function (req, res) {
+/**
+ * Change support products of user
+ * @return
+ * @example
+ */
+router.put('/:id/products', function (req, res) {
     let query;
     const PRODUCT_SHORT_NAME = req.body.short_name;
     const SUPPORTD = req.body.supported;
@@ -100,69 +93,36 @@ router.post('/:id/products', function (req, res) {
 
     // PROCESS POST
     if (parseInt(SUPPORTD)){
-        query = `UPDATE user_supports_product usp SET ${PRODUCT_SHORT_NAME} = (SELECT product_id FROM product p WHERE p.short_name = "${PRODUCT_SHORT_NAME}") WHERE usp.user_id = ${connection.escape(req.params['id'])};`
+        query = `UPDATE user_supports_product usp SET ${PRODUCT_SHORT_NAME} = (SELECT product_id FROM product p WHERE p.short_name = "${PRODUCT_SHORT_NAME}") WHERE usp.user_id = ${connection.escape(req.params['id'])};`;
         connection.query(query, function (error, results) {
             if (!error && results.affectedRows) {
-                res.sendStatus(HttpStatus.ACCEPTED)
+                res.status(200).json(ResponseBuilder.PUT())
             }
             else {
-                handleError(error, res);
+                Error.handleError(error, res);
             }
         })
     } else {
-        query = `UPDATE user_supports_product usp SET ${PRODUCT_SHORT_NAME} = NULL WHERE usp.user_id = ${connection.escape(req.params['id'])};`
+        query = `UPDATE user_supports_product usp SET ${PRODUCT_SHORT_NAME} = NULL WHERE usp.user_id = ${connection.escape(req.params['id'])};`;
         connection.query(query, function (error, results) {
             if (!error && results.affectedRows) {
-                res.sendStatus(HttpStatus.ACCEPTED)
+                res.status(200).json(ResponseBuilder.PUT())
             }
             else {
-                handleError(error, res);
+                Error.handleError(error, res);
             }
         })
     }
-})
-
-// CREATE A USER
-router.post('/', function (req, res) {
-    // VALIDATE POST
-    const body = req.body;
-    USER_PARAMS.forEach(element => {
-        if (body[element] == null) {
-            const error_msg = `Missing '${element}' parameter`;
-            res.status(400).send({
-                'error': error_msg
-            });
-            throw Error(error_msg)
-        }
-    });
-    // PROCESS POST
-    const query = `INSERT INTO qmtooldb.user (i_number, first_name, last_name, is_available,usage_percent,current_q_days,incident_threshold) 
-    VALUES (${connection.escape(body['i_number'])}, 
-        ${connection.escape(body['first_name'])},  
-        ${connection.escape(body['last_name'])}, 
-        ${connection.escape(body['is_available'])},
-        ${connection.escape(body['usage_percent'])},
-        ${connection.escape(body['current_q_days'])},
-        ${connection.escape(body['incident_threshold'])})`;
-
-    connection.query(query, function (error) {
-            if (error) {
-                switch (error.code) {
-                    case "ER_DUP_ENTRY":
-                        res.sendStatus(409);
-                        break
-                }
-            } else {
-                res.status(201).location(req.baseUrl + '/' + connection.escape(body['i_number'])).send();
-            }
-        }
-    )
 });
 
-
-// UPDATE USER
+/**
+ * UPDATE USER
+ * @return
+ * @example
+ */
 router.put('/:id/', function (req, res) {
     let body = req.body;
+    // VALIDATE POST
     USER_PARAMS.forEach(element => {
         if (body[element] == null) {
             const error_msg = `Missing '${element}' parameter`;
@@ -172,6 +132,7 @@ router.put('/:id/', function (req, res) {
             throw error(error_msg)
         }
     });
+    // PROCESS POST
     let query = `UPDATE qmtooldb.user SET 
         i_number = ${connection.escape(body['i_number']) || connection.escape(req.params.id) },
         first_name = ${connection.escape(body['first_name'])}, 
@@ -198,20 +159,66 @@ router.put('/:id/', function (req, res) {
     });
 });
 
-// DELTE Specific user
+// ============================
+// POST
+// ============================
+
+/**
+ * CREATE USER
+ * @return
+ * @example
+ */
+router.post('/', function (req, res) {
+    // VALIDATE POST
+    const body = req.body;
+    USER_PARAMS.forEach(element => {
+        if (body[element] == null) {
+            const error_msg = `Missing '${element}' parameter`;
+            res.status(400).send({
+                'error': error_msg
+            });
+            throw Error(error_msg)
+        }
+    });
+    // PROCESS POST
+    const query = `INSERT INTO qmtooldb.user (i_number, first_name, last_name, is_available,usage_percent,current_q_days,incident_threshold) 
+    VALUES (${connection.escape(body['i_number'])}, 
+        ${connection.escape(body['first_name'])},  
+        ${connection.escape(body['last_name'])}, 
+        ${connection.escape(body['is_available'])},
+        ${connection.escape(body['usage_percent'])},
+        ${connection.escape(body['current_q_days'])},
+        ${connection.escape(body['incident_threshold'])})`;
+
+    connection.query(query, function (error) {
+            if (!error) {
+                res.status(201).location(req.baseUrl + '/' + connection.escape(body['i_number'])).send();
+            } else {
+                Error.handleError(error, res);
+            }
+        }
+    )
+});
+
+/*
+* ============================
+* DELETE
+* ============================
+* */
+
+/**
+ * DELETE USER
+ * @return
+ * @example
+ */
 router.delete('/:id/', function (req, res) {
     let body = req.body;
     let query = `DELETE FROM qmtooldb.user where i_number = ${connection.escape(req.params['id'])}`;
     connection.query(query, function (error, results) {
         if (error) {
-            res.status(400).send({
-                "error": error
-            })
-        }
-        if (results.affectedRows === 0) {
-            res.sendStatus(404);
+            handleError();
         } else {
-            res.sendStatus(200);
+            res.status(200).json(ResponseBuilder.DELETE())
         }
     });
 });
