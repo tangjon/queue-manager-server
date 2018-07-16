@@ -106,6 +106,21 @@ INSERT INTO `qmtooldb`.`user`(`user_id`,
 "10",
 3);
 
+
+INSERT INTO `qmtooldb`.`user`(`user_id`,
+`first_name`,
+`last_name`,
+`is_available`,
+`usage_percent`,
+`current_q_days`,
+`incident_threshold`) VALUES("i865689",
+"Jonathan",
+"Tang",
+"0",
+"1.0",
+"10",
+3);
+
 -- =====================
 -- SET QM
 -- =====================
