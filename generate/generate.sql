@@ -35,14 +35,14 @@ ADD CONSTRAINT FOREIGN KEY (`BW4`) REFERENCES `qmtooldb`.`product` (`product_id`
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 
-SET @product = "RCC";
+SET @product = "DSM";
 INSERT INTO `qmtooldb`.`product`
 (`product_id`,`short_name`)
 VALUES
 ('4',@product);
 ALTER TABLE qmtooldb.user_supports_product 
-ADD RCC INT(11) NULL DEFAULT NULL,
-ADD CONSTRAINT FOREIGN KEY (`RCC`) REFERENCES `qmtooldb`.`product` (`product_id`)
+ADD DSM INT(11) NULL DEFAULT NULL,
+ADD CONSTRAINT FOREIGN KEY (`DSM`) REFERENCES `qmtooldb`.`product` (`product_id`)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
 
@@ -165,18 +165,20 @@ VALUES
 -- =====================
 -- ADD SUPPORT PRODUCTS
 -- =====================
-UPDATE user_supports_product usp SET RCC = (SELECT product_id FROM product p WHERE p.short_name = "RCC") WHERE usp.user_id = 'i100000';
-
-UPDATE user_supports_product usp SET RCC = (SELECT product_id FROM product p WHERE p.short_name = "RCC") WHERE usp.user_id = 'i100001';
-
-UPDATE user_supports_product usp SET RCC = (SELECT product_id FROM product p WHERE p.short_name = "RCC") WHERE usp.user_id = 'i100002';
+UPDATE user_supports_product usp SET MS = (SELECT product_id FROM product p WHERE p.short_name = "MS") WHERE usp.user_id = 'i100000';
+UPDATE user_supports_product usp SET MS = (SELECT product_id FROM product p WHERE p.short_name = "MS") WHERE usp.user_id = 'i100001';
+UPDATE user_supports_product usp SET MS = (SELECT product_id FROM product p WHERE p.short_name = "MS") WHERE usp.user_id = 'i100002';
+UPDATE user_supports_product usp SET MS = (SELECT product_id FROM product p WHERE p.short_name = "MS") WHERE usp.user_id = 'i100003';
 
 UPDATE user_supports_product usp SET NW = (SELECT product_id FROM product p WHERE p.short_name = "NW") WHERE usp.user_id = 'i100000';
-
 UPDATE user_supports_product usp SET NW = (SELECT product_id FROM product p WHERE p.short_name = "NW") WHERE usp.user_id = 'i100001';
-
 UPDATE user_supports_product usp SET NW = (SELECT product_id FROM product p WHERE p.short_name = "NW") WHERE usp.user_id = 'i100002';
+UPDATE user_supports_product usp SET NW = (SELECT product_id FROM product p WHERE p.short_name = "NW") WHERE usp.user_id = 'i100003';
 
+UPDATE user_supports_product usp SET BW4 = (SELECT product_id FROM product p WHERE p.short_name = "BW4") WHERE usp.user_id = 'i100000';
+UPDATE user_supports_product usp SET BW4 = (SELECT product_id FROM product p WHERE p.short_name = "BW4") WHERE usp.user_id = 'i100001';
+UPDATE user_supports_product usp SET BW4 = (SELECT product_id FROM product p WHERE p.short_name = "BW4") WHERE usp.user_id = 'i100002';
+UPDATE user_supports_product usp SET BW4 = (SELECT product_id FROM product p WHERE p.short_name = "BW4") WHERE usp.user_id = 'i100003';
 -- =====================
 -- GENERATE INCIDENTS
 -- =====================
@@ -186,8 +188,20 @@ SET @dummy_user = 'i100000';
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 
 SET @dummy_user = 'i100001';
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
@@ -197,14 +211,28 @@ SET @dummy_user = 'i100002';
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+
+SET @dummy_user = 'i100003';
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 
 -- =====================
 -- TOGGLE USERS
 -- =====================
-UPDATE `qmtooldb`.`user`
-SET `is_available` = "0" WHERE `user_id` = 'i100000';
-
-SELECT * FROM user WHERE `user_id` = 'i100000';
+UPDATE `qmtooldb`.`user` SET `is_available` = "1" WHERE `user_id` = 'i100000';
 
 -- =====================
 -- COUNT THE NUMBER OF INCIDENTS

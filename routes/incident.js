@@ -49,7 +49,7 @@ router.post('/', function (req, res) {
         if (error) {
             Error.handleError(error, res);
         } else {
-            res.status(201).send();
+            res.status(201).json(ResponseBuilder.POST(results[0]));
         }
     });
 });
@@ -58,4 +58,17 @@ router.post('/', function (req, res) {
 // DELETE
 // ============================
 
+// i think this is pretty bad..., but a workaround at that!
+router.delete('/:user_id/:product_short_name', function (req, res) {
+    const user_id = req.params.user_id;
+    const product_short_name = req.params.product_short_name;
+    const query = `DELETE FROM incident WHERE incident.user_id = ${connection.escape(user_id)} and incident.product_id = (SELECT product_id FROM product WHERE short_name = ${connection.escape(product_short_name)}) LIMIT 1;`;
+    connection.query(query, function (error, results) {
+        if (error) {
+            Error.handleError(error, res);
+        } else {
+            res.status(200).json(ResponseBuilder.DELETE())
+        }
+    });
+});
 module.exports = router;
