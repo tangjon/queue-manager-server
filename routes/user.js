@@ -86,15 +86,56 @@ router.get('/qm', function (req, res) {
  * @example
  */
 router.get('/:id/', function (req, res) {
-    const query = 'SELECT * FROM user where user_id =' + connection.escape(req.params['id']);
-    connection.query(query, function (error, results) {
+    const qUser = `SELECT * FROM user u, user_supports_product usp WHERE u.user_id = usp.user_id and u.user_id = '${req.params.id}';`; // results [1]
+    const qProducts = "SELECT short_name FROM product;"; // results [0]
+    const qIncidentCount = "SELECT i.user_id, p.short_name, COUNT(*) as 'incident_count' FROM incident i,product p WHERE p.product_id = i.product_id and i.user_id = '${req.params.id}'  GROUP BY i.product_id, i.user_id ORDER BY i.user_id;"; // result [2]
+    connection.query(qProducts + qUser + qIncidentCount, function (error, results) {
         if (!error && results.length) {
-            res.status(200).json(ResponseBuilder.GET(results[0]))
+            const qProductResult = results[0], qUserResult = results[1], qIncidentResult = results[2];
+            // list of products as array
+            let arrayProducts = [];
+            qProductResult.forEach(product => {
+                arrayProducts.push(product.short_name)
+            });
+
+            let processedResults = [];
+            // process and structure json response
+            qUserResult.forEach(u => {
+                let tmpObj = {
+                    'supported_products': {},
+                    'incident_counts': {}
+                };
+                Object.keys(u).forEach(key => {
+                    if (!arrayProducts.includes(key)) {
+                        // assign meta info
+                        tmpObj[key] = u[key];
+                    } else {
+                        // assign support products and initalize incident counts
+                        tmpObj.supported_products[key] = u[key];
+                        tmpObj.incident_counts[key] = 0;
+                    }
+                });
+
+                // set incident count
+                let incidentEntry = qIncidentResult.filter(el => el.user_id === u.user_id);
+                incidentEntry.forEach(el => tmpObj.incident_counts[el.short_name] = el.incident_count);
+                processedResults.push(tmpObj);
+            });
+            res.status(200).json(ResponseBuilder.GET(processedResults[0]))
         }
         else {
             Error.handleError(error, res);
         }
     });
+    // const query = 'SELECT * FROM user where user_id =' + connection.escape(req.params['id']);
+    // connection.query(query, function (error, results) {
+    //     if (!error && results.length) {
+    //         res.status(200).json(ResponseBuilder.GET(results[0]))
+    //     }
+    //     else {
+    //         Error.handleError(error, res);
+    //     }
+    // });
 });
 
 /**
@@ -195,6 +236,15 @@ router.put('/qm/', function (req, res) {
  * UPDATE USER
  * @return
  * @example
+ * {
+    user_id : ""
+    first_name : ""
+    last_name : ""
+    is_available : ""
+    usage_percent : ""
+    current_q_days : ""
+    incident_threshold : ""
+}
  */
 router.put('/:id/', function (req, res) {
     let body = req.body;
@@ -208,6 +258,7 @@ router.put('/:id/', function (req, res) {
     //         throw error(error_msg)
     //     }
     // });
+    console.log(body);
     // PROCESS POST
     let query = `UPDATE qmtooldb.user SET 
         user_id = ${connection.escape(body['user_id']) || connection.escape(req.params.id) },
@@ -289,10 +340,11 @@ router.post('/', function (req, res) {
         ${connection.escape(body['last_name'])})`;
 
     connection.query(query, function (error) {
+        console.log(query, error);
         if (error) {
             Error.handleError(error, res);
             } else {
-            res.status(201).location(req.baseUrl + '/' + body['user_id']).send();
+            res.status(201).location(req.baseUrl + '/' + body['user_id']).json(ResponseBuilder.POST());
             }
         }
     )
@@ -311,8 +363,8 @@ router.post('/', function (req, res) {
  * @example
  */
 router.delete('/:id/', function (req, res) {
-    let body = req.body;
-    let query = `DELETE FROM qmtooldb.user where i_number = ${connection.escape(req.params['id'])}`;
+    let query = `DELETE FROM user WHERE user_id = ${connection.escape(req.params['id'])}`;
+    console.log(query);
     connection.query(query, function (error, results) {
         if (error) {
             Error.handleError(error, res);
