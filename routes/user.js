@@ -236,7 +236,31 @@ router.put('/:id/', function (req, res) {
     });
 });
 
-
+/**
+ * UPDATE USER SUPPORT PRODUCTS
+ * @return
+ * @example
+ * {
+ *    supported: true / false
+ *  }
+ */
+router.put('/:id/:product_short_name', function (req, res) {
+    const user_id = req.params.id, short_name = req.params.product_short_name;
+    console.log(req.body);
+    let query;
+    if (req.body['supported'] === true) {
+        query = `UPDATE user_supports_product usp SET ${short_name} = (SELECT product_id FROM product p WHERE p.short_name = "${short_name}") WHERE usp.user_id = '${user_id}';`;
+    } else if (req.body['supported'] === false) {
+        query = `UPDATE user_supports_product usp SET ${short_name} = ${null} WHERE usp.user_id = '${user_id}';`;
+    }
+    connection.query(query, function (error) {
+        if (error) {
+            Error.handleError(error, res);
+        } else {
+            res.status(200).location(req.baseUrl + '/product/').json(ResponseBuilder.PUT());
+        }
+    });
+});
 // ============================
 // POST
 // ============================

@@ -163,7 +163,7 @@ VALUES
 "Queue Days Changed");
 
 -- =====================
--- ADD SUPPORT PRODUCTS
+-- ADD SUPPORT PRODUCTS TO USERS
 -- =====================
 UPDATE user_supports_product usp SET MS = (SELECT product_id FROM product p WHERE p.short_name = "MS") WHERE usp.user_id = 'i100000';
 UPDATE user_supports_product usp SET MS = (SELECT product_id FROM product p WHERE p.short_name = "MS") WHERE usp.user_id = 'i100001';
