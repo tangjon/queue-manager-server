@@ -63,7 +63,7 @@ router.post('/', function (req, res) {
         // Insert into user supports product table
         const qAddColumnToUserSupportTbl = `ALTER TABLE user_supports_product ADD ${connection.escape(body['short_name']).replace(/['"]+/g, '')} INT(11) NULL DEFAULT NULL, ADD CONSTRAINT ${connection.escape(body['short_name']).replace(/['"]+/g, '')} FOREIGN KEY (${connection.escape(body['short_name']).replace(/['"]+/g, '')}) REFERENCES product (product_id) ON DELETE SET NULL ON UPDATE CASCADE;`;
         connection.query(qAddtoProductTable + qAddColumnToUserSupportTbl, function (error, results) {
-            console.log(error);
+
             if (error) {
                 Helper.handleError(error, res);
             } else {
@@ -103,7 +103,6 @@ router.delete('/:short_name', function (req, res) {
     const qDeleteUserSupport = `ALTER TABLE user_supports_product DROP FOREIGN KEY ${connection.escape(req.params['short_name']).replace(/['"]+/g, '')};` + `ALTER TABLE user_supports_product DROP COLUMN ${connection.escape(req.params['short_name']).replace(/['"]+/g, '')};`;
 
     connection.query(qDeleteProduct + qDeleteUserSupport, function (error, results) {
-        console.log(error);
         if (error) {
             Helper.handleError(error, res);
         } else {
