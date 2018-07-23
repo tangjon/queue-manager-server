@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a017cba-c369-49e4-9981-fb59b6a98612" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/StartServer.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/helper/error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -61,8 +57,8 @@
       <file leaf-file-name="StartServer.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/StartServer.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="230">
+              <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -186,7 +182,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1913" />
     <option name="width" value="954" />
     <option name="height" value="1047" />
@@ -315,7 +311,7 @@
       <workItem from="1531455117213" duration="305000" />
       <workItem from="1531455569415" duration="18977000" />
       <workItem from="1531586488534" duration="29419000" />
-      <workItem from="1531889172137" duration="16897000" />
+      <workItem from="1531889172137" duration="17515000" />
     </task>
     <task id="LOCAL-00001" summary="clean up">
       <created>1531192823045</created>
@@ -464,11 +460,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532203765343</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="create start server bash">
+      <created>1532204859250</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1532204859250</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85645000" />
+    <option name="totallyTimeSpent" value="86263000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -480,8 +483,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.24986821" />
       <window_info anchor="bottom" id="TODO" order="10" visible="true" weight="0.3278867" />
@@ -553,7 +555,8 @@
     <MESSAGE value="add support for supported product change" />
     <MESSAGE value="update work space" />
     <MESSAGE value="fix add / remove products" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix add / remove products" />
+    <MESSAGE value="create start server bash" />
+    <option name="LAST_COMMIT_MESSAGE" value="create start server bash" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1074,8 +1077,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/StartServer.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="230">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
         </state>
       </provider>
     </entry>
