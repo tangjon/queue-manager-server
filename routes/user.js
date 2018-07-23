@@ -75,7 +75,7 @@ router.get('/qm', function (req, res) {
             res.status(200).json(ResponseBuilder.GET(results[0]))
         }
         else {
-            Helper.handleError(error, res);
+            Helper.handleError(new Error("Not Found"), res);
         }
     });
 });
