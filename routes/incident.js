@@ -46,7 +46,7 @@ router.post('/', function (req, res) {
         if (error) {
             ResponseBuilder.ERROR(res, error)
         } else {
-            ResponseBuilder.POST(res, results)
+            ResponseBuilder.POST(res)
         }
     });
 });

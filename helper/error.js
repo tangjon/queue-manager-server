@@ -7,8 +7,7 @@ function QMError(message) {
  }
 
 module.exports.handleError = function (error, response) {
-    console.error(error)
-    console.log(response);
+    console.error(error);
     response.status(404).json({
         "message" : error.message,
     });
