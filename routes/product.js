@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../sqlconfig');
-const ResponseBuilder = require('../helper/response-builder.js');
+const sssssss = require('../helper/response-builder.js');
 const Helper = require('../helper/error.js');
-
+const ResponseBuilder = require('../helper/helper.js');
 // ============================
 // GETTERS
 // ============================
@@ -14,13 +14,13 @@ const Helper = require('../helper/error.js');
  * @example
  */
 router.get('/', function (req, res) {
-    let query = 'SELECT * FROM qmtooldb.product';
+    let query = 'SELECT * FROM product';
     connection.query(query, function (error, results) {
         if (!error && results.length) {
-            res.status(200).json(ResponseBuilder.GET(results))
+            ResponseBuilder.GET(results)
         }
         else {
-            Helper.handleError(error, res);
+            ResponseBuilder.ERROR(res, error)
         }
     });
 });
@@ -34,10 +34,11 @@ router.get('/:short_name', function (req, res) {
     let query = 'SELECT * FROM product WHERE short_name=' + connection.escape(req.params['short_name']);
     connection.query(query, function (error, results) {
         if (!error && results.length) {
-            res.status(200).json(ResponseBuilder.GET(results))
+            ResponseBuilder.GET(results)
+
         }
         else {
-            Helper.handleError(error, res);
+            ResponseBuilder.ERROR(res, error)
         }
     });
 });
@@ -65,13 +66,14 @@ router.post('/', function (req, res) {
         connection.query(qAddtoProductTable + qAddColumnToUserSupportTbl, function (error, results) {
 
             if (error) {
-                Helper.handleError(error, res);
+                ResponseBuilder.ERROR(res, error)
             } else {
-                res.status(201).location(req.baseUrl + '/product/' + connection.escape(body['short_name'])).send();
+                res.location(req.baseUrl + '/product/' + connection.escape(body['short_name']));
+                ResponseBuilder.POST(res)
             }
         });
     } else {
-        Helper.handleError(new Error("Not a valid input"), res);
+        ResponseBuilder.POST(res, new Error("Not a valid input"))
     }
 
 });
@@ -79,8 +81,6 @@ router.post('/', function (req, res) {
 // ============================
 // PUT
 // ============================
-
-
 
 
 // ============================
@@ -104,9 +104,9 @@ router.delete('/:short_name', function (req, res) {
 
     connection.query(qDeleteProduct + qDeleteUserSupport, function (error, results) {
         if (error) {
-            Helper.handleError(error, res);
+            ResponseBuilder.ERROR(res, error)
         } else {
-            res.status(200).json(ResponseBuilder.DELETE())
+            ResponseBuilder.DELETE(res, results)
         }
     });
 });

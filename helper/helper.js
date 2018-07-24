@@ -11,7 +11,7 @@ module.exports.POST = function (response, error) {
     if (error instanceof Error) {
         code = 400;
     } else {
-        code = 200;
+        code = 201;
     }
     return response.status(code).json({
         "code": code,

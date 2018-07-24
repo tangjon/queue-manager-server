@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../sqlconfig');
-const ResponseBuildervvvvvvvv = require('../helper/response-builder.js');
-const Helpers = require('../helper/error.js');
 const ResponseBuilder = require('../helper/helper.js');
 // ============================
 // GETTERS
@@ -183,20 +181,21 @@ router.put('/:id/products', function (req, res) {
         query = `UPDATE user_supports_product usp SET ${PRODUCT_SHORT_NAME} = (SELECT product_id FROM product p WHERE p.short_name = "${PRODUCT_SHORT_NAME}") WHERE usp.user_id = ${connection.escape(req.params['id'])};`;
         connection.query(query, function (error, results) {
             if (!error && results.affectedRows) {
-                res.status(200).json(ResponseBuildervvvvvvvv.PUT())
+                ResponseBuilder.PUT(res)
             }
             else {
-                Helpers.handleError(error, res);
+                ResponseBuilder.ERROR(error);
             }
         })
     } else {
         query = `UPDATE user_supports_product usp SET ${PRODUCT_SHORT_NAME} = NULL WHERE usp.user_id = ${connection.escape(req.params['id'])};`;
         connection.query(query, function (error, results) {
             if (!error && results.affectedRows) {
-                res.status(200).json(ResponseBuildervvvvvvvv.PUT())
+                ResponseBuilder.PUT(res)
             }
             else {
-                Helpers.handleError(error, res);
+                ResponseBuilder.ERROR(error);
+
             }
         })
     }
