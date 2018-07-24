@@ -7,12 +7,12 @@ module.exports.GET = function (response, data) {
 
 module.exports.POST = function (response, error) {
     let code;
-    error = error || new Error();
     if (error instanceof Error) {
         code = 400;
     } else {
         code = 201;
     }
+    error = error || new Error();
     return response.status(code).json({
         "code": code,
         "error": error.message,
