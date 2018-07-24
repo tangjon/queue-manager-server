@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a017cba-c369-49e4-9981-fb59b6a98612" name="Default" comment="">
+    <list default="true" id="0a017cba-c369-49e4-9981-fb59b6a98612" name="Default" comment="git ignore">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,19 +21,8 @@
       <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
+            <state relative-caret-position="690">
               <caret line="82" selection-start-line="82" selection-end-line="82" />
-              <folding>
-                <element signature="e#449#2492#0" expanded="true" />
-                <element signature="e#958#2488#0" expanded="true" />
-                <element signature="e#1226#1296#0" expanded="true" />
-                <element signature="e#1613#2032#0" expanded="true" />
-                <element signature="e#2586#2920#0" expanded="true" />
-                <element signature="e#2725#2916#0" expanded="true" />
-                <element signature="e#2924#2975#0" />
-                <element signature="e#12442#12750#0" expanded="true" />
-                <element signature="e#12589#12746#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -40,8 +30,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+            <state relative-caret-position="449">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
             </state>
           </provider>
         </entry>
@@ -49,8 +39,8 @@
       <file leaf-file-name="error.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helper/error.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="230">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -58,14 +48,8 @@
       <file leaf-file-name="response-builder.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helper/response-builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
-              <folding>
-                <element signature="e#42#89#0" expanded="true" />
-                <element signature="e#251#336#0" expanded="true" />
-                <element signature="e#372#438#0" expanded="true" />
-                <element signature="e#477#543#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="184">
+              <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -73,7 +57,7 @@
       <file leaf-file-name="incident.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/incident.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
+            <state relative-caret-position="1012">
               <caret line="69" column="58" selection-start-line="69" selection-start-column="58" selection-end-line="69" selection-end-column="58" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -116,6 +100,9 @@
       <find>console</find>
       <find>support</find>
       <find>qm</find>
+      <find>folder</find>
+      <find>p</find>
+      <find>add</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,22 +154,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="qm-tool-backend-node-js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qm-tool-backend-node-js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="qm-tool-backend-node-js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qm-tool-backend-node-js" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Changed Files">
           <expand>
@@ -223,12 +194,28 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="qm-tool-backend-node-js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qm-tool-backend-node-js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qm-tool-backend-node-js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qm-tool-backend-node-js" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="HTML" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Queue-Manager-FB-AJS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
     <property name="node.js.selected.package.prettier" value="" />
@@ -236,7 +223,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -306,7 +293,8 @@
       <workItem from="1531455569415" duration="18977000" />
       <workItem from="1531586488534" duration="29419000" />
       <workItem from="1531889172137" duration="17515000" />
-      <workItem from="1532325277215" duration="2786000" />
+      <workItem from="1532325277215" duration="2867000" />
+      <workItem from="1532395159928" duration="68000" />
     </task>
     <task id="LOCAL-00001" summary="clean up">
       <created>1531192823045</created>
@@ -469,11 +457,25 @@
       <option name="project" value="LOCAL" />
       <updated>1532329275675</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="git ignore">
+      <created>1532395079617</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1532395079617</updated>
+    </task>
+    <task id="LOCAL-00025" summary="git ignore">
+      <created>1532395131204</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1532395131204</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89049000" />
+    <option name="totallyTimeSpent" value="89198000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -486,19 +488,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="10" weight="0.32779622" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32890365" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.1819172" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.2580288" />
-      <window_info id="npm" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32779622" />
       <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.24986821" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32779622" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.1819172" />
+      <window_info id="npm" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.2580288" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32779622" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.5370986" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -507,27 +507,28 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32890365" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info id="npm" order="0" side_tool="true" />
       <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.3278867" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.24986821" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32890365" />
-      <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.18272425" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.5370986" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32890365" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.18272425" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.32890365" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.24986821" />
+      <window_info id="Favorites" order="1" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +561,8 @@
     <MESSAGE value="fix add / remove products" />
     <MESSAGE value="create start server bash" />
     <MESSAGE value="code clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="code clean up" />
+    <MESSAGE value="git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="git ignore" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -657,12 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#42#89#0" expanded="true" />
-            <element signature="e#251#336#0" expanded="true" />
-            <element signature="e#372#438#0" expanded="true" />
-            <element signature="e#477#543#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -722,17 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="22" column="105" selection-start-line="22" selection-start-column="105" selection-end-line="22" selection-end-column="105" />
-          <folding>
-            <element signature="e#449#2492#0" expanded="true" />
-            <element signature="e#958#2488#0" expanded="true" />
-            <element signature="e#1226#1296#0" expanded="true" />
-            <element signature="e#1613#2032#0" expanded="true" />
-            <element signature="e#2586#2920#0" expanded="true" />
-            <element signature="e#2725#2916#0" expanded="true" />
-            <element signature="e#2924#2975#0" />
-            <element signature="e#12442#12750#0" expanded="true" />
-            <element signature="e#12589#12746#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -778,17 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-          <folding>
-            <element signature="e#449#2492#0" expanded="true" />
-            <element signature="e#958#2488#0" expanded="true" />
-            <element signature="e#1226#1296#0" expanded="true" />
-            <element signature="e#1613#2032#0" expanded="true" />
-            <element signature="e#2586#2920#0" expanded="true" />
-            <element signature="e#2725#2916#0" expanded="true" />
-            <element signature="e#2924#2975#0" />
-            <element signature="e#12442#12750#0" expanded="true" />
-            <element signature="e#12589#12746#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -831,17 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-          <folding>
-            <element signature="e#449#2492#0" expanded="true" />
-            <element signature="e#958#2488#0" expanded="true" />
-            <element signature="e#1226#1296#0" expanded="true" />
-            <element signature="e#1613#2032#0" expanded="true" />
-            <element signature="e#2586#2920#0" expanded="true" />
-            <element signature="e#2725#2916#0" expanded="true" />
-            <element signature="e#2924#2975#0" />
-            <element signature="e#12442#12750#0" expanded="true" />
-            <element signature="e#12589#12746#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -870,17 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
           <caret line="140" column="21" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="21" />
-          <folding>
-            <element signature="e#449#2492#0" expanded="true" />
-            <element signature="e#958#2488#0" expanded="true" />
-            <element signature="e#1226#1296#0" expanded="true" />
-            <element signature="e#1613#2032#0" expanded="true" />
-            <element signature="e#2586#2920#0" expanded="true" />
-            <element signature="e#2725#2916#0" expanded="true" />
-            <element signature="e#2924#2975#0" />
-            <element signature="e#12442#12750#0" expanded="true" />
-            <element signature="e#12589#12746#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -909,17 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="121" column="21" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
-          <folding>
-            <element signature="e#449#2492#0" expanded="true" />
-            <element signature="e#958#2488#0" expanded="true" />
-            <element signature="e#1226#1296#0" expanded="true" />
-            <element signature="e#1613#2032#0" expanded="true" />
-            <element signature="e#2586#2920#0" expanded="true" />
-            <element signature="e#2725#2916#0" expanded="true" />
-            <element signature="e#2924#2975#0" />
-            <element signature="e#12442#12750#0" expanded="true" />
-            <element signature="e#12589#12746#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1025,21 +966,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/helper/error.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="230">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/helper/response-builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
-          <folding>
-            <element signature="e#42#89#0" expanded="true" />
-            <element signature="e#251#336#0" expanded="true" />
-            <element signature="e#372#438#0" expanded="true" />
-            <element signature="e#477#543#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="184">
+          <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -1052,7 +987,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/incident.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
+        <state relative-caret-position="1012">
           <caret line="69" column="58" selection-start-line="69" selection-start-column="58" selection-end-line="69" selection-end-column="58" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1062,26 +997,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="690">
           <caret line="82" selection-start-line="82" selection-end-line="82" />
-          <folding>
-            <element signature="e#449#2492#0" expanded="true" />
-            <element signature="e#958#2488#0" expanded="true" />
-            <element signature="e#1226#1296#0" expanded="true" />
-            <element signature="e#1613#2032#0" expanded="true" />
-            <element signature="e#2586#2920#0" expanded="true" />
-            <element signature="e#2725#2916#0" expanded="true" />
-            <element signature="e#2924#2975#0" />
-            <element signature="e#12442#12750#0" expanded="true" />
-            <element signature="e#12589#12746#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+        <state relative-caret-position="449">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
         </state>
       </provider>
     </entry>
