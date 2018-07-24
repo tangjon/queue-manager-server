@@ -17,7 +17,7 @@ router.get('/', function (req, res) {
     let query = 'SELECT * FROM product';
     connection.query(query, function (error, results) {
         if (!error && results.length) {
-            ResponseBuilder.GET(results)
+            ResponseBuilder.GET(res, results)
         }
         else {
             ResponseBuilder.ERROR(res, error)
