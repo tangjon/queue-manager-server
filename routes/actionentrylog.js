@@ -8,7 +8,7 @@ const ResponseBuilder = require('../helper/helper.js');
 // ============================
 // GET All LOGS
 router.get('/', function (req, res) {
-    const query = 'SELECT ale.logger_id, a.action_id, a.description, ale.custom_description, ale.timestamp FROM actionentrylog ale, action a WHERE a.action_id = ale.action_id;';
+    const query = 'SELECT ale.logger_id, ale.affected_user_id , a.action_id, a.description, ale.custom_description, ale.timestamp FROM actionentrylog ale, action a WHERE a.action_id = ale.action_id  ORDER BY ale.timestamp DESC;';
     connection.query(query, function (error, results) {
         if (error) {
             ResponseBuilder.ERROR(res, error)
