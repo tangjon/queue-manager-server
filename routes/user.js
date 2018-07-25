@@ -135,7 +135,7 @@ router.get('/:id/', function (req, res) {
  */
 router.get('/:id/incidents/', function (req, res) {
     const query = `SELECT i.incident_id, i.log_id, p.short_name, ael.timestamp, p.product_id FROM product p, incident i, actionentrylog ael WHERE p.product_id = i.product_id and i.log_id = ael.log_id and i.user_id = ${connection.escape(req.params['id'])} ORDER BY i.incident_id DESC;`;
-    connection.query(query, function (error, results) {
+    connection.query(query, function (error, results) {        
         if (error) {
             ResponseBuilder.ERROR(res.error)
         }
