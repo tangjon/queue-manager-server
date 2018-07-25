@@ -36,6 +36,11 @@ router.get('/', function (req, res) {
  */
 
 router.post('/', function (req, res) {
+    // Pre-requesites: Incidents need a log id....
+    // STEP 1: Create an incident
+    // STPE 2: Create an entrylog entry
+    // STEP 3: Attach id to incident
+
     // VALIDATE POST
 
     // PROCESS POST
