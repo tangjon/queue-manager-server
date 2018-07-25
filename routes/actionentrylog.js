@@ -21,7 +21,7 @@ router.get('/actions', function (req, res) {
 
 // GET All LOGS
 router.get('/', function (req, res) {
-    const query = 'SELECT ale.detail, ale.logger_id, ale.affected_user_id , a.action_id, a.description, ale.custom_description, ale.timestamp FROM actionentrylog ale, action a WHERE a.action_id = ale.action_id  ORDER BY ale.timestamp DESC;';
+    const query = 'SELECT TRIM(CONCAT(u.first_name, " ", u.last_name)) AS affected_user_name, ale.detail, ale.logger_id, ale.affected_user_id , a.action_id, a.description, ale.timestamp FROM actionentrylog ale, action a, user u WHERE a.action_id = ale.action_id and u.user_id = ale.affected_user_id ORDER BY ale.timestamp DESC;';
     connection.query(query, function (error, results) {
         if (error) {
             ResponseBuilder.ERROR(res, error)
