@@ -7,7 +7,7 @@ const auth = require('basic-auth')
 
 const EPM_CREDENTIALS = {
     "username" : "administrator",
-    "password" : "bobobo"
+    "password" : "Password2017"
 }
 
 router.get('/', function (req, res) {
@@ -15,10 +15,13 @@ router.get('/', function (req, res) {
     if (!credentials || credentials.name !== EPM_CREDENTIALS.username || credentials.pass !== EPM_CREDENTIALS.password) {
         res.statusCode = 401 // forbidden
         res.setHeader('WWW-Authenticate', 'Basic realm="example"')
-        res.end('Access denied')
+        res.json({
+            "code":  res.statusCode,
+            "message": "Unauthorized",
+        })
     } else {
         res.statusCode = 200 // authorizated
-        res.end('Access granted')
+        res.json("Access granted")
     }
 });
 
