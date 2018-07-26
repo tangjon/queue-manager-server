@@ -41,7 +41,6 @@ router.get('/', function (req, res) {
     "logger_id" : "i123",
     "affected_user_id" : "i132",
     "action_id" : "2",
-    "custom_description" : "this is optional",
     "detail": "0 to 1 NW"
     }
  */

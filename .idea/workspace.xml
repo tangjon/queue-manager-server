@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0a017cba-c369-49e4-9981-fb59b6a98612" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/generate/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate/generate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/generate/generate.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate/model.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/generate/model.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate/model.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/generate/model.mwb.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/actionentrylog.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/actionentrylog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/home.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,14 +21,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="actionentrylog.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="actionentrylog.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/actionentrylog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="24" column="54" lean-forward="true" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+            <state relative-caret-position="989">
+              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
               <folding>
                 <element signature="e#290#567#0" expanded="true" />
                 <element signature="e#416#563#0" expanded="true" />
+                <element signature="e#297#682#0" expanded="true" />
                 <element signature="e#531#678#0" expanded="true" />
                 <element signature="e#979#1811#0" expanded="true" />
                 <element signature="e#1552#1723#0" expanded="true" />
@@ -82,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/user.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="431">
@@ -142,6 +144,7 @@
       <find>p</find>
       <find>add</find>
       <find>ResponseBuilder.POST</find>
+      <find>custom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -343,7 +346,7 @@
       <workItem from="1532325277215" duration="2867000" />
       <workItem from="1532395159928" duration="68000" />
       <workItem from="1532492513436" duration="11000" />
-      <workItem from="1532550145079" duration="6175000" />
+      <workItem from="1532550145079" duration="8769000" />
     </task>
     <task id="LOCAL-00001" summary="clean up">
       <created>1531192823045</created>
@@ -576,11 +579,25 @@
       <option name="project" value="LOCAL" />
       <updated>1532552720745</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="remove custom_description field from api">
+      <created>1532560606460</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1532560606460</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add username to actionentrylogs">
+      <created>1532562248753</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1532562248753</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111753000" />
+    <option name="totallyTimeSpent" value="114347000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -645,8 +662,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="implement delete for user" />
-    <MESSAGE value="start incident api" />
     <MESSAGE value="commit" />
     <MESSAGE value="rename slq column names" />
     <MESSAGE value="playing around" />
@@ -670,7 +685,9 @@
     <MESSAGE value="fix indefinite null" />
     <MESSAGE value="init actioentrylog api&#10;- implement GET ALL, and POST" />
     <MESSAGE value="separated relationship between incident table and actionentrylog table" />
-    <option name="LAST_COMMIT_MESSAGE" value="separated relationship between incident table and actionentrylog table" />
+    <MESSAGE value="remove custom_description field from api" />
+    <MESSAGE value="add username to actionentrylogs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add username to actionentrylogs" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1119,13 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="143" column="9" lean-forward="true" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/Sequence.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -1166,15 +1176,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/actionentrylog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="24" column="54" lean-forward="true" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+        <state relative-caret-position="989">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
           <folding>
             <element signature="e#290#567#0" expanded="true" />
             <element signature="e#416#563#0" expanded="true" />
+            <element signature="e#297#682#0" expanded="true" />
             <element signature="e#531#678#0" expanded="true" />
             <element signature="e#979#1811#0" expanded="true" />
             <element signature="e#1552#1723#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="143" column="9" lean-forward="true" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
         </state>
       </provider>
     </entry>

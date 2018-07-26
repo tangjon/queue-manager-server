@@ -235,54 +235,68 @@ UPDATE user_supports_product usp SET BW4 = (SELECT product_id FROM product p WHE
 UPDATE user_supports_product usp SET BW4 = (SELECT product_id FROM product p WHERE p.short_name = "BW4") WHERE usp.user_id = 'i100002';
 UPDATE user_supports_product usp SET BW4 = (SELECT product_id FROM product p WHERE p.short_name = "BW4") WHERE usp.user_id = 'i100003';
 -- =====================
--- GENERATE INCIDENTS
+-- GENERATE INCIDENTS WITH LOGS
 -- =====================
 SET @MIN_PRODUCT_ID = 1;
 SET @MAX_PRODUCT_ID = 3;
+SET @logger = 'i865689';
 SET @dummy_user = 'i100000';
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 
 SET @dummy_user = 'i100001';
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
+
 
 
 SET @dummy_user = 'i100002';
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
+
 
 SET @dummy_user = 'i100003';
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
-INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
+INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";
+
 
 -- =====================
 -- TOGGLE USERS
