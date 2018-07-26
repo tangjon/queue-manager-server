@@ -8,7 +8,9 @@ const home = require('./routes/home.js');
 const incident = require('./routes/incident.js');
 const user = require('./routes/user.js');
 const product = require('./routes/product.js');
-const actionentrylog = require('./routes/actionentrylog');
+const actionentrylog = require('./routes/actionentrylog.js');
+const auth = require('./routes/auth.js');
+
 // MIDDLEWARE
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded({ extended: true })); // to support URL-encoded bodies
@@ -18,6 +20,7 @@ app.use('/api/incidents/', incident);
 app.use('/api/users/', user);
 app.use('/api/products/', product);
 app.use('/api/actionentrylog/', actionentrylog);
+app.use('/api/auth/', auth);
 
 
 
