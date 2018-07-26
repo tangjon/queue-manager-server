@@ -217,6 +217,21 @@ VALUES
 (5,
 "Queue Days Changed");
 
+
+INSERT INTO `qmtooldb`.`action`
+(`action_id`,
+`description`)
+VALUES
+(6,
+"Product Support Changed");
+
+
+INSERT INTO `qmtooldb`.`action`
+(`action_id`,
+`description`)
+VALUES
+(7,
+"QM Changed");
 -- =====================
 -- ADD SUPPORT PRODUCTS TO USERS
 -- =====================
