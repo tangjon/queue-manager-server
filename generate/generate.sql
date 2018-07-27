@@ -162,19 +162,6 @@ INSERT INTO `qmtooldb`.`user`(`user_id`,
 3);
 
 
-INSERT INTO `qmtooldb`.`user`(`user_id`,
-`first_name`,
-`last_name`,
-`is_available`,
-`usage_percent`,
-`current_q_days`,
-`incident_threshold`) VALUES("i865689",
-"Jonathan",
-"",
-"0",
-"1.0",
-"10",
-3);
 
 -- =====================
 -- SET QM
@@ -254,7 +241,7 @@ UPDATE user_supports_product usp SET BW4 = (SELECT product_id FROM product p WHE
 -- =====================
 SET @MIN_PRODUCT_ID = 1;
 SET @MAX_PRODUCT_ID = 3;
-SET @logger = 'i865689';
+SET @logger = 'i100000';
 SET @dummy_user = 'i100000';
 INSERT INTO qmtooldb.incident (user_id, product_id) SELECT @dummy_user, FLOOR(RAND()*(@MAX_PRODUCT_ID-@MIN_PRODUCT_ID+1)+@MIN_PRODUCT_ID);
 INSERT INTO `qmtooldb`.`actionentrylog` (`logger_id`,`action_id`,`affected_user_id`,`detail`) SELECT @logger,2,@dummy_user, "TEST";

@@ -240,7 +240,7 @@ router.put('/qm/', function (req, res) {
 router.put('/:id/', function (req, res) {
     let body = req.body;
     // PROCESS POST
-    let query = `UPDATE qmtooldb.user SET
+    let query = `UPDATE user SET
 user_id = ${connection.escape(body['user_id']) || connection.escape(req.params.id)},
 first_name = ${connection.escape(body['first_name'])},
 last_name = ${connection.escape(body['last_name'])},
@@ -274,9 +274,9 @@ WHERE user_id = ${connection.escape(req.params.id)}`;
 router.put('/:id/:product_short_name', function (req, res) {
     const user_id = req.params.id, short_name = req.params.product_short_name;
     let query;
-    if (req.body['supported'] === true) {
+    if (JSON.parse(req.body.supported) === true) {
         query = `UPDATE user_supports_product usp SET ${short_name} = (SELECT product_id FROM product p WHERE p.short_name = "${short_name}") WHERE usp.user_id = '${user_id}';`;
-    } else if (req.body['supported'] === false) {
+    } else if (JSON.parse(req.body.supported) === false) {
         query = `UPDATE user_supports_product usp SET ${short_name} = ${null} WHERE usp.user_id = '${user_id}';`;
     }
     connection.query(query, function (error) {
@@ -296,7 +296,14 @@ router.put('/:id/:product_short_name', function (req, res) {
  * CREATE USER
  * @return
  * @example
+ * {
+    "user_id" : "i123",
+    "first_name" : "Horm",
+    "last_name" : "sda"
+}
  */
+
+
 router.post('/', function (req, res) {
     // VALIDATE POST
     const body = req.body;

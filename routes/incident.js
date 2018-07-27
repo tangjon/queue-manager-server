@@ -46,7 +46,14 @@ router.post('/', function (req, res) {
     // PROCESS POST
     const product_short_name = req.body.product_short_name;
     const user_id = req.body.user_id;
-    const query = `INSERT INTO incident (user_id, product_id) SELECT '${user_id}', (SELECT p.product_id FROM product p WHERE p.short_name = '${product_short_name}');`;
+    const timestamp = req.body.timestamp;
+    let query = "";
+    if (timestamp) {
+        query = `INSERT INTO incident (user_id, product_id, timestamp) SELECT '${user_id}', (SELECT p.product_id FROM product p WHERE p.short_name = '${product_short_name}'), '${timestamp}';`;
+    } else {
+        query = `INSERT INTO incident (user_id, product_id) SELECT '${user_id}', (SELECT p.product_id FROM product p WHERE p.short_name = '${product_short_name}');`;
+
+    }
     connection.query(query, function (error, results) {
         if (error) {
             ResponseBuilder.ERROR(res, error)

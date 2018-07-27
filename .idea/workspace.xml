@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a017cba-c369-49e4-9981-fb59b6a98612" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/routes/migrate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generate/generate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/generate/generate.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/generate/init.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generate/model.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/generate/model.mwb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generate/model.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/generate/model.mwb.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/actionentrylog.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/actionentrylog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/incident.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/incident.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,40 +26,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="actionentrylog.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/actionentrylog.js">
+      <file leaf-file-name="migrate.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/migrate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="989">
-              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+            <state relative-caret-position="216">
+              <caret line="96" column="31" lean-forward="true" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
               <folding>
-                <element signature="e#290#567#0" expanded="true" />
-                <element signature="e#416#563#0" expanded="true" />
-                <element signature="e#297#682#0" expanded="true" />
-                <element signature="e#531#678#0" expanded="true" />
-                <element signature="e#979#1811#0" expanded="true" />
-                <element signature="e#1552#1723#0" expanded="true" />
+                <element signature="e#329#352#0" expanded="true" />
+                <element signature="e#646#654#0" expanded="true" />
+                <element signature="e#1041#1071#0" expanded="true" />
+                <element signature="e#1189#1205#0" expanded="true" />
+                <element signature="e#1223#1247#0" expanded="true" />
+                <element signature="n#!!block;n#addSupportProduct#0" expanded="true" />
+                <element signature="e#1212#2006#0" expanded="true" />
+                <element signature="e#1233#1299#0" />
+                <element signature="e#1498#1530#0" expanded="true" />
+                <element signature="n#!!block;n#createUser#0" expanded="true" />
+                <element signature="e#1558#1605#0" expanded="true" />
+                <element signature="e#1650#1724#0" expanded="true" />
+                <element signature="e#3109#3157#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/home.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="e#158#241#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -62,54 +53,12 @@
       <file leaf-file-name="incident.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/incident.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" selection-start-line="3" selection-end-line="6" selection-end-column="55" />
+            <state relative-caret-position="446">
+              <caret line="51" column="189" selection-start-line="51" selection-start-column="189" selection-end-line="51" selection-end-column="189" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#313#747#0" expanded="true" />
-                <element signature="e#974#1481#0" expanded="true" />
-                <element signature="e#1338#1477#0" expanded="true" />
-                <element signature="e#1666#2203#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sequence.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/Sequence.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="87" column="22" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="143" column="9" lean-forward="true" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/product.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1334">
-              <caret line="113" selection-start-line="113" selection-end-line="113" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helper.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/helper/helper.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
-              <folding>
-                <element signature="e#47#131#0" expanded="true" />
-                <element signature="e#183#429#0" expanded="true" />
+                <element signature="e#1501#1640#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,7 +84,6 @@
       <find>console.log(</find>
       <find>log</find>
       <find>avail</find>
-      <find>product</find>
       <find>console.log</find>
       <find>console</find>
       <find>support</find>
@@ -145,6 +93,13 @@
       <find>add</find>
       <find>ResponseBuilder.POST</find>
       <find>custom</find>
+      <find>user</find>
+      <find>config</find>
+      <find>create</find>
+      <find>meta</find>
+      <find>?</find>
+      <find>update</find>
+      <find>product</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -172,10 +127,11 @@
         <option value="$PROJECT_DIR$/routes/entrylog.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.es6" />
-        <option value="$PROJECT_DIR$/routes/incident.js" />
-        <option value="$PROJECT_DIR$/routes/user.js" />
         <option value="$PROJECT_DIR$/routes/home.js" />
         <option value="$PROJECT_DIR$/routes/actionentrylog.js" />
+        <option value="$PROJECT_DIR$/routes/user.js" />
+        <option value="$PROJECT_DIR$/routes/incident.js" />
+        <option value="$PROJECT_DIR$/routes/migrate.js" />
       </list>
     </option>
   </component>
@@ -284,6 +240,121 @@
       <recent name="C:\Users\tangj\Desktop\Git\qm-tool-backend-node-js\generate" />
     </key>
   </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/generate/generate.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/package-lock.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/home.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/auth.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -296,9 +367,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.nodemon">
+  <component name="RunManager" selected="Node.js.migrate.js">
     <configuration name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="app.js" working-dir="$PROJECT_DIR$" />
     <configuration name="http_test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="http_test.js" working-dir="$PROJECT_DIR$" />
+    <configuration name="migrate.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="migrate.js" working-dir="$PROJECT_DIR$/routes" />
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -319,9 +391,11 @@
       <item itemvalue="Node.js.app.js" />
       <item itemvalue="npm.nodemon" />
       <item itemvalue="Node.js.http_test.js" />
+      <item itemvalue="Node.js.migrate.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.migrate.js" />
         <item itemvalue="Node.js.http_test.js" />
       </list>
     </recent_temporary>
@@ -346,7 +420,7 @@
       <workItem from="1532325277215" duration="2867000" />
       <workItem from="1532395159928" duration="68000" />
       <workItem from="1532492513436" duration="11000" />
-      <workItem from="1532550145079" duration="8769000" />
+      <workItem from="1532550145079" duration="24324000" />
     </task>
     <task id="LOCAL-00001" summary="clean up">
       <created>1531192823045</created>
@@ -593,11 +667,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532562248753</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="clean up tables">
+      <created>1532614765273</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1532614765273</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114347000" />
+    <option name="totallyTimeSpent" value="129902000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -616,13 +697,14 @@
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32779622" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.1819172" />
       <window_info id="npm" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.2580288" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32779622" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.30675527" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.49723145" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -630,29 +712,7 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32890365" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="5" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info id="npm" order="0" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.3278867" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.24986821" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="10" weight="0.32890365" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.18272425" />
-      <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.5370986" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32890365" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.32890365" />
-      <window_info id="Favorites" order="1" side_tool="true" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -662,7 +722,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="commit" />
     <MESSAGE value="rename slq column names" />
     <MESSAGE value="playing around" />
     <MESSAGE value="add comments" />
@@ -687,7 +746,8 @@
     <MESSAGE value="separated relationship between incident table and actionentrylog table" />
     <MESSAGE value="remove custom_description field from api" />
     <MESSAGE value="add username to actionentrylogs" />
-    <option name="LAST_COMMIT_MESSAGE" value="add username to actionentrylogs" />
+    <MESSAGE value="clean up tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up tables" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -697,31 +757,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/incident.js</url>
-          <line>68</line>
+          <line>75</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/user.js</url>
-          <line>255</line>
-          <option name="timeStamp" value="76" />
+          <line>275</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/incident.js</url>
-          <line>50</line>
+          <url>file://$PROJECT_DIR$/routes/migrate.js</url>
+          <line>111</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/incident.js</url>
-          <line>48</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="80" />
+          <option name="timeStamp" value="141" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="81" />
+      <option name="time" value="142" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
@@ -733,23 +788,17 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>result.forEach(el) {
-    el
-}</expression-string>
+        <expression-string />
         <language-id>JavaScript</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result.forEach(el) {
-    console.log(el)
-}</expression-string>
+        <expression-string />
         <language-id>JavaScript</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result.forEach(el){
-    console.log(el)
-}</expression-string>
+        <expression-string />
         <language-id>JavaScript</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -775,67 +824,53 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>this.sql</expression-string>
+        <expression-string>incidents</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>qUserResult == false</expression-string>
+        <expression-string />
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>qUserResult == fakse</expression-string>
+        <expression-string />
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>qUserResult.length</expression-string>
+        <expression-string>product</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>qUserResult</expression-string>
+        <expression-string />
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>body.user_id</expression-string>
+        <expression-string />
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>results[0][0]</expression-string>
+        <expression-string>req.body.supported</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>results[0]</expression-string>
+        <expression-string />
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>results[1]</expression-string>
+        <expression-string>el.KEY</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="105" selection-start-line="22" selection-start-column="105" selection-end-line="22" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sqlconfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -857,9 +892,7 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#313#747#0" expanded="true" />
-            <element signature="e#974#1481#0" expanded="true" />
-            <element signature="e#1338#1477#0" expanded="true" />
-            <element signature="e#1666#2203#0" expanded="true" />
+            <element signature="e#1501#1640#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1034,13 +1067,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/http_test.js" />
-    <entry file="file://$PROJECT_DIR$/SECRET.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.es6">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -1059,13 +1085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sqlconfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1090,13 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/request/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helper/response-builder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1118,13 +1130,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helper/helper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -1143,37 +1148,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1334">
-          <caret line="113" selection-start-line="113" selection-end-line="113" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/incident.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" selection-start-line="3" selection-end-line="6" selection-end-column="55" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#313#747#0" expanded="true" />
-            <element signature="e#974#1481#0" expanded="true" />
-            <element signature="e#1338#1477#0" expanded="true" />
-            <element signature="e#1666#2203#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#158#241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/actionentrylog.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="989">
@@ -1189,10 +1163,112 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SECRET.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sqlconfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1334">
+          <caret line="113" selection-start-line="113" selection-end-line="113" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#851#1002#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#158#241#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/request/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-380">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/request/request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="1156" column="8" selection-start-line="1156" selection-start-column="8" selection-end-line="1156" selection-end-column="8" />
+          <folding>
+            <element signature="e#3936#16877#0" expanded="true" />
+            <element signature="e#5039#5207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="143" column="9" lean-forward="true" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
+        <state relative-caret-position="120">
+          <caret line="278" column="47" selection-start-line="278" selection-start-column="47" selection-end-line="278" selection-end-column="47" />
+          <folding>
+            <element signature="e#5310#5818#0" expanded="true" />
+            <element signature="e#5652#5814#0" expanded="true" />
+            <element signature="e#8285#9246#0" expanded="true" />
+            <element signature="e#8928#9242#0" expanded="true" />
+            <element signature="e#9944#10136#0" expanded="true" />
+            <element signature="e#10299#11397#0" expanded="true" />
+            <element signature="e#11159#11389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/incident.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="51" column="189" selection-start-line="51" selection-start-column="189" selection-end-line="51" selection-end-column="189" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#313#747#0" expanded="true" />
+            <element signature="e#1501#1640#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/migrate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="96" column="31" lean-forward="true" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
+          <folding>
+            <element signature="e#329#352#0" expanded="true" />
+            <element signature="e#646#654#0" expanded="true" />
+            <element signature="e#1041#1071#0" expanded="true" />
+            <element signature="e#1189#1205#0" expanded="true" />
+            <element signature="e#1223#1247#0" expanded="true" />
+            <element signature="n#!!block;n#addSupportProduct#0" expanded="true" />
+            <element signature="e#1212#2006#0" expanded="true" />
+            <element signature="e#1233#1299#0" />
+            <element signature="e#1498#1530#0" expanded="true" />
+            <element signature="n#!!block;n#createUser#0" expanded="true" />
+            <element signature="e#1558#1605#0" expanded="true" />
+            <element signature="e#1650#1724#0" expanded="true" />
+            <element signature="e#3109#3157#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
