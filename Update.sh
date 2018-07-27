@@ -4,7 +4,7 @@
 
 # This will bring this project up to date with the repo. All changes to this directory will be lost.
 echo "============================================"
-echo "RUNNING QM TOOL Update and Deploy"
+echo "RUNNING BACKEND UPDATE TOOL"
 echo "============================================"
 
 git pull
