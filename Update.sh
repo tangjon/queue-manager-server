@@ -4,8 +4,10 @@
 
 # This will bring this project up to date with the repo. All changes to this directory will be lost.
 echo "============================================"
-echo "RUNNING BACKEND UPDATE TOOL"
+echo "RUNNING UPDATE TOOL"
 echo "============================================"
 
+git fetch --all
+git reset --hard origin/master
 git pull
 read
