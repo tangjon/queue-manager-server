@@ -9,3 +9,4 @@ echo "CTR-C to close server. DO NOT HIT X TO CLOSE BOX"
 
 echo "CTR-C to close server. DO NOT HIT X TO CLOSE BOX"
 nodemon ./app.js
+read

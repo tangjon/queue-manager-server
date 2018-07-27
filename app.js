@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const port = 8081;
+
 app.use(cors({credentials: true, origin: true}));
 
 // ROUTES
@@ -22,9 +24,7 @@ app.use('/api/products/', product);
 app.use('/api/actionentrylog/', actionentrylog);
 app.use('/api/auth/', auth);
 
-
-
-const server = app.listen(8081, function () {
+const server = app.listen(port, function () {
 
    var host = server.address().address;
    var port = server.address().port;
