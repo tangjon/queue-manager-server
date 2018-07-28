@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 8081;
+const DEFAULT_PORT = 8082;
 
 app.use(cors({credentials: true, origin: true}));
 
@@ -24,10 +24,25 @@ app.use('/api/products/', product);
 app.use('/api/actionentrylog/', actionentrylog);
 app.use('/api/auth/', auth);
 
+
+let env = "DEVELOPMENT";
+let port = DEFAULT_PORT;
+switch (process.argv[2]) {
+    case "":
+    case "dev":
+        env = "DEVELOPMENT";
+        port = 8082;
+        break;
+    case "prod":
+        env = "PRODUCTION";
+        port = 8081;
+        break;
+}
+
 const server = app.listen(port, function () {
 
    var host = server.address().address;
    var port = server.address().port;
 
-   console.log("Example app listening at http://localhost:%s", port)
+    console.log("QM Tool backend [%s ENVIRONMENT] listening at http://localhost:%s", env, port)
 });

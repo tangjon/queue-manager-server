@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a017cba-c369-49e4-9981-fb59b6a98612" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate/generate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/generate/generate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate/generate_test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/generate/generate_test.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate/init.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate/model.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/generate/model.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate/model.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/generate/model.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,6 +42,36 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+              <folding>
+                <element signature="e#869#1020#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="generate.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generate/generate.sql">
           <provider selected="true" editor-type-id="text-editor">
@@ -55,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generate_test.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="generate_test.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generate/generate_test.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+            <state relative-caret-position="483">
+              <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -124,7 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/buffer1.txt" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.html" />
         <option value="$PROJECT_DIR$/http_test.js" />
@@ -140,7 +165,6 @@
         <option value="$PROJECT_DIR$/routes/product.js" />
         <option value="$PROJECT_DIR$/helper/helper.js" />
         <option value="$PROJECT_DIR$/routes/entrylog.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.es6" />
         <option value="$PROJECT_DIR$/routes/home.js" />
         <option value="$PROJECT_DIR$/routes/actionentrylog.js" />
@@ -150,6 +174,8 @@
         <option value="$PROJECT_DIR$/generate/init_dev.sql" />
         <option value="$PROJECT_DIR$/generate/generate.sql" />
         <option value="$PROJECT_DIR$/generate/generate_test.sql" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -1052,8 +1078,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.migrate.js">
-    <configuration name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="app.js" working-dir="$PROJECT_DIR$" />
+  <component name="RunManager" selected="Node.js.app.js">
+    <configuration name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" application-parameters="prod" path-to-js-file="app.js" working-dir="$PROJECT_DIR$" />
     <configuration name="http_test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="http_test.js" working-dir="$PROJECT_DIR$" />
     <configuration name="migrate.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="migrate.js" working-dir="$PROJECT_DIR$/routes" />
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -1359,11 +1385,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532614765273</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="update init and generate sql scripts">
+      <created>1532820918893</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1532820918893</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131109000" />
+    <option name="totallyTimeSpent" value="132354000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1383,7 +1416,7 @@
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.1819172" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.18161683" />
       <window_info id="npm" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.2580288" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
@@ -1419,7 +1452,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="rename slq column names" />
     <MESSAGE value="playing around" />
     <MESSAGE value="add comments" />
     <MESSAGE value="update user" />
@@ -1444,7 +1476,8 @@
     <MESSAGE value="remove custom_description field from api" />
     <MESSAGE value="add username to actionentrylogs" />
     <MESSAGE value="clean up tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up tables" />
+    <MESSAGE value="update init and generate sql scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="update init and generate sql scripts" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1467,11 +1500,23 @@
           <line>111</line>
           <option name="timeStamp" value="141" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app.js</url>
+          <line>44</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app.js</url>
+          <line>28</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="142" />
+      <option name="time" value="145" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
@@ -1519,6 +1564,31 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>process.argv[2]</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>process.argv[3]</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>process.argv</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>process</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>process_params()</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>incidents</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -1535,31 +1605,6 @@
       </expression>
       <expression>
         <expression-string>product</expression-string>
-        <language-id>JavaScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string />
-        <language-id>JavaScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string />
-        <language-id>JavaScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>req.body.supported</expression-string>
-        <language-id>JavaScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string />
-        <language-id>JavaScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>el.KEY</expression-string>
         <language-id>JavaScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1714,20 +1759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/application.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7015">
@@ -1849,13 +1880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -1943,8 +1967,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generate/generate_test.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        <state relative-caret-position="483">
+          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="e#869#1020#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
         </state>
       </provider>
     </entry>
