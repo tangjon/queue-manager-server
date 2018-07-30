@@ -3,10 +3,6 @@ var request = require('request');
 const baseURL = "https://qmdatabasep2000140239trial.hanatrial.ondemand.com/qmapi_prod/data.xsodata/";
 const baseAPI = "http://localhost:8081/api";
 
-let t = request.post({url: 'http://service.com/upload', form: {key: 'value'}}, function (err, httpResponse, body) {
-    let cat = "cat"
-});
-
 let getUser = rp(baseURL + "/users" + "?$format=json");
 let getProduct = rp(baseURL + "/product" + "?$format=json");
 let getSupport = rp(baseURL + "/support_book" + "?$format=json");
