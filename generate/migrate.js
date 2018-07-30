@@ -1,7 +1,7 @@
 const rp = require('request-promise');
 var request = require('request');
 const baseURL = "https://qmdatabasep2000140239trial.hanatrial.ondemand.com/qmapi_prod/data.xsodata/";
-const baseAPI = "http://localhost:8081/api";
+const baseAPI = "http://localhost:8082/api";
 
 let getUser = rp(baseURL + "/users" + "?$format=json");
 let getProduct = rp(baseURL + "/product" + "?$format=json");
