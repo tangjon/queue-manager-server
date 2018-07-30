@@ -317,7 +317,7 @@ router.post('/', function (req, res) {
     //     ${connection.escape(body['current_q_days'])},
     //     ${connection.escape(body['incident_threshold'])})`;
 
-    const query = `INSERT INTO qmtooldb.user (user_id, first_name, last_name)
+    const query = `INSERT INTO user (user_id, first_name, last_name)
 VALUES (${connection.escape(body['user_id'])},
 ${connection.escape(body['first_name'])},
 ${connection.escape(body['last_name'])})`;
