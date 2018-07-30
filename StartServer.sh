@@ -6,7 +6,5 @@ echo "RUNNING QM TOOL BACKEND SERVER"
 echo "============================================"
 
 echo "CTR-C to close server. DO NOT HIT X TO CLOSE BOX"
-
-echo "CTR-C to close server. DO NOT HIT X TO CLOSE BOX"
 node ./app.js prod
 read
