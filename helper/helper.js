@@ -43,6 +43,7 @@ module.exports.DELETE = function (response, results) {
 };
 
 module.exports.ERROR = function (response, error) {
+    console.log(error);
     // log-file_YYYY-MM-DD_HH:MM:SS
     const date = new Date();
     let fileName = `log-file_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}.txt`

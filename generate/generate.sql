@@ -101,6 +101,17 @@ ADD CONSTRAINT SA FOREIGN KEY (`SA`) REFERENCES `product` (`product_id`)
 ON DELETE SET NULL
 ON UPDATE CASCADE;
 
+SET @product = "SM";
+INSERT INTO `product`
+(`short_name`)
+VALUES
+(@product);
+ALTER TABLE user_supports_product
+ADD SM INT(11) NULL DEFAULT NULL,
+ADD CONSTRAINT SM FOREIGN KEY (`SM`) REFERENCES `product` (`product_id`)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
+
 -- =====================
 -- GENERATE USERS
 -- =====================

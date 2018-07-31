@@ -1,12 +1,27 @@
 const rp = require('request-promise');
 var request = require('request');
 const baseURL = "https://qmdatabasep2000140239trial.hanatrial.ondemand.com/qmapi_prod/data.xsodata/";
-const baseAPI = "http://localhost:8082/api";
+
+var baseAPI = "";
+switch (process.argv[2]) {
+    case "dev":
+        baseAPI = "http://localhost:8082/api";
+        break;
+    case "prod":
+        baseAPI = "http://localhost:8081/api";
+        break;
+    default:
+        baseAPI = "http://localhost:8082/api";
+        break
+}
 
 let getUser = rp(baseURL + "/users" + "?$format=json");
 let getProduct = rp(baseURL + "/product" + "?$format=json");
 let getSupport = rp(baseURL + "/support_book" + "?$format=json");
 let getInidentBook = rp(baseURL + "/incident_book" + "?$format=json");
+
+
+
 Promise.all([getUser, getProduct, getSupport, getInidentBook]).then(function (values) {
     let users = JSON.parse(values[0]).d.results, product = JSON.parse(values[1]).d.results,
         support = JSON.parse(values[2]).d.results, incidents = JSON.parse(values[3]).d.results;

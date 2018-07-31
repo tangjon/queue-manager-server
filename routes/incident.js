@@ -71,7 +71,7 @@ router.post('/', function (req, res) {
 router.delete('/:user_id/:product_short_name', function (req, res) {
     const user_id = req.params.user_id;
     const product_short_name = req.params.product_short_name;
-    const query = `DELETE FROM incident WHERE incident.user_id = ${connection.escape(user_id)} and incident.product_id = (SELECT product_id FROM product WHERE short_name = ${connection.escape(product_short_name)}) LIMIT 1;`;
+    const query = `DELETE FROM incident WHERE incident.user_id = ${connection.escape(user_id)} and incident.product_id = (SELECT product_id FROM product WHERE short_name = ${connection.escape(product_short_name)}) ORDER BY incident.timestamp DESC LIMIT 1;`;
     connection.query(query, function (error, results) {
         if (error) {
             ResponseBuilder.ERROR(res, error)
