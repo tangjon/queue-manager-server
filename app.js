@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+var t = require('http').Server(app);
+var io = require('socket.io')(t);
+
 const DEFAULT_PORT = 8082;
 
 app.use(cors({credentials: true, origin: true}));
@@ -45,4 +48,11 @@ const server = app.listen(port, function () {
    var port = server.address().port;
 
     console.log("QM Tool backend [%s ENVIRONMENT] listening at http://localhost:%s", env, port)
+});
+
+io.on('connection', function (socket) {
+    socket.emit('news', { hello: 'world' });
+    socket.on('my other event', function (data) {
+      console.log(data);
+    });
 });
