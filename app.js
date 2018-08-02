@@ -1,8 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-var t = require('http').Server(app);
-var io = require('socket.io')(t);
+var ws = require('socket.io');
 
 const DEFAULT_PORT = 8082;
 
@@ -50,9 +49,15 @@ const server = app.listen(port, function () {
     console.log("QM Tool backend [%s ENVIRONMENT] listening at http://localhost:%s", env, port)
 });
 
+var io = require('socket.io')(server);
+var last_socket_id = "";
 io.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-      console.log(data);
+    console.log("user connected: " + socket.id)
+    socket.on('queue modified', function(data){
+        last_socket_id = socket.id;
+        console.log("queue modifed ",last_socket_id)
+        socket.broadcast.emit('new changes', {
+            "socket_id" : last_socket_id
+        })
     });
 });
