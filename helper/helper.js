@@ -46,14 +46,7 @@ module.exports.ERROR = function (response, error) {
     console.log(error);
     // log-file_YYYY-MM-DD_HH:MM:SS
     const date = new Date();
-    let fileName = `log-file_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}.txt`
-    // fs.writeFile("logs/" + fileName, error, function (err) {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-
-    //     console.log("log file generated: " + fileName);
-    // });
+    let fileName = `log-file_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}_${data.getTime()}.txt`
 
     var stream = fs.createWriteStream("logs/" + fileName);
     stream.once('open', function (fd) {
