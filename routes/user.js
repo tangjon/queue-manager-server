@@ -302,8 +302,6 @@ router.put('/:id/:product_short_name', function (req, res) {
     "last_name" : "sda"
 }
  */
-
-
 router.post('/', function (req, res) {
     // VALIDATE POST
     const body = req.body;
@@ -333,6 +331,28 @@ ${connection.escape(body['last_name'])})`;
     )
 });
 
+/**
+ * Reset Users Queue Days
+ * @return
+ * @example {
+    "reset_boolean" : "true"
+    }
+ */
+router.post('/reset',function (req, res) {
+    const reset_boolean = JSON.parse(req.body['reset_boolean']);
+    const query = "UPDATE user SET current_q_days = 0 WHERE 1 = 1;";
+    if (reset_boolean === true) {
+        connection.query(query, function (error, results) {
+            if (error) {
+                ResponseBuilder.ERROR(res, error)
+            } else {
+                ResponseBuilder.POST(res)
+            }
+        });
+    } else {
+        ResponseBuilder.ERROR(res, "invalid paramaters: " + req.body['reset_boolean'])
+    }
+});
 
 /*
 * ============================
