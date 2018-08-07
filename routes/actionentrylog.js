@@ -63,6 +63,29 @@ router.post('/', function (req, res) {
     }
 });
 
+/**
+ * Reset Logs
+ * @return
+ * @example {
+    "reset_boolean" : "true"
+    }
+ */
+router.post('/reset',function (req, res) {
+    const reset_boolean = JSON.parse(req.body['reset_boolean']);
+    const query = "DELETE FROM actionentrylog WHERE 1 = 1";
+    if (reset_boolean === true) {
+        connection.query(query, function (error, results) {
+            if (error) {
+                ResponseBuilder.ERROR(res, error)
+            } else {
+                ResponseBuilder.POST(res)
+            }
+        });
+    } else {
+        ResponseBuilder.ERROR(res, "invalid paramaters: " + req.body['reset_boolean'])
+    }
+});
+
 // ============================
 // PUT
 // ============================
