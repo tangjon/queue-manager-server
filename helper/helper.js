@@ -43,17 +43,24 @@ module.exports.DELETE = function (response, results) {
 };
 
 module.exports.ERROR = function (response, error) {
-    console.log(error);
     // log-file_YYYY-MM-DD_HH:MM:SS
     const date = new Date();
     let fileName = `log-file_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}_${date.getTime()}.txt`
 
     var stream = fs.createWriteStream("logs/" + fileName);
     stream.once('open', function (fd) {
-        console.log("log file generated: " + fileName);
-        stream.write(JSON.stringify(error));
-        stream.write("\n");
+        console.log("ERROR: log file generated: " + fileName);
+ 	if(error instanceof Error){
+    		stream.write(error.stack);
+        	stream.write("\n");
+    	} else {
+		stream.write(JSON.stringify(error));
+        	stream.write("\n");
+	}
+        
     });
+
+   
     response.status(404).json({
         "message": error.message
     });
