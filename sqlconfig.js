@@ -44,4 +44,8 @@ function handleDisconnect() {
 
 handleDisconnect();
 
+setInterval(()=>{
+  connection.ping();
+}, 60000)
+
 module.exports = connection;
