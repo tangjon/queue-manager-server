@@ -8,31 +8,33 @@ module.exports.GET = function (response, data) {
 };
 
 module.exports.POST = function (response, error) {
-    let code;
     if (error instanceof Error) {
-        code = 400;
+        return response.status(400).json({
+            "code": 400,
+            "error": error.message,
+        });
     } else {
-        code = 201;
+        return response.status(201).json({
+            "code": 201,
+            "error": "",
+        });
     }
-    error = error || new Error();
-    return response.status(code).json({
-        "code": code,
-        "error": error.message,
-    });
+
 };
 
 module.exports.PUT = function (response, error) {
-    let code;
     if (error instanceof Error) {
         code = 400;
+        return response.status(400).json({
+            "code": 400,
+            "error": error.message,
+        });
     } else {
-        error = new Error();
-        code = 200;
+        return response.status(200).json({
+            "code": 200,
+            "error": "",
+        });
     }
-    return response.status(code).json({
-        "code": code,
-        "error": error.message
-    });
 };
 
 module.exports.DELETE = function (response, results) {
@@ -50,19 +52,19 @@ module.exports.ERROR = function (response, error) {
     var stream = fs.createWriteStream("logs/" + fileName);
     stream.once('open', function (fd) {
         console.log("ERROR: log file generated: " + fileName);
- 	if(error instanceof Error){
-    		stream.write(error.stack);
-        	stream.write("\n");
-    	} else {
-		stream.write(JSON.stringify(error));
-        	stream.write("\n");
-	}
-        
-    });
+        if (error instanceof Error) {
+            stream.write(error.stack);
+            stream.write("\n");
+        }
+        else {
+            stream.write(JSON.stringify(error));
+            stream.write("\n");
+        }
 
-   
+    });
+    console.log((error instanceof Error) ? error.message : error)
     response.status(404).json({
-        "message": error.message
+        "message":  (error instanceof Error) ? error.message : error
     });
 };
 
