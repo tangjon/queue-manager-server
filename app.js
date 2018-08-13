@@ -68,6 +68,7 @@ io.on('connection', function (socket) {
         console.log(data)
     })
     checkQueueDaysUpToDate(socket)
+    checkDaysLeftInQuarter(socket)
 });
 
 // CHRON JOBS
@@ -100,4 +101,20 @@ function checkQueueDaysUpToDate(socket) {
             }
         }
     });
+}
+
+function checkDaysLeftInQuarter(socket){
+    if (daysLeftInQuarter(new Date) <= 7) {
+        socket.emit("notifications", {
+            "message": `There are ${daysLeftInQuarter(new Date())} days left in the quarter. Manual reset required soon.`
+        });
+    }
+
+    function daysLeftInQuarter(d) {
+        d = d || new Date();
+        // d.setDate(d.getDate() + 43)
+        const qEnd = new Date(d);
+        qEnd.setMonth(qEnd.getMonth() + 3 - qEnd.getMonth() % 3, 0);
+        return Math.floor((qEnd - d) / 8.64e7);
+      }
 }
