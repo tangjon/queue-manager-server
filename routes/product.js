@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../sqlconfig');
 const sssssss = require('../helper/response-builder.js');
-const Helper = require('../helper/error.js');
 const ResponseBuilder = require('../helper/helper.js');
 // ============================
 // GETTERS

@@ -45,6 +45,11 @@ module.exports.DELETE = function (response, results) {
 };
 
 module.exports.ERROR = function (response, error) {
+    let dir = './logs';
+	if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
+	
     // log-file_YYYY-MM-DD_HH:MM:SS
     const date = new Date();
     let fileName = `log-file_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}_${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}_${date.getTime()}.txt`
