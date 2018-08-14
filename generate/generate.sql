@@ -1,4 +1,4 @@
-USE qmtooldb_dev;
+USE qmtooldb_prod;
 -- ======================
 -- GENERATE PRODUCTS
 -- ======================
