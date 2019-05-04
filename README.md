@@ -17,6 +17,10 @@ Use npm to install dependencies
 ```bash
 npm install
 ```
+## Run
+```bash
+node app.js
+```
 
 ## Project Status
 Completed
